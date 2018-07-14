@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2018 a las 00:01:46
+-- Tiempo de generación: 15-07-2018 a las 00:22:55
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -100,7 +100,6 @@ CREATE TABLE `docente_materia` (
 CREATE TABLE `materia` (
   `id_materia` int(10) NOT NULL,
   `nombre_materia` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Paralelo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `id_titulacion` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -114,6 +113,18 @@ CREATE TABLE `materia_alumno` (
   `id_matalu` int(10) NOT NULL,
   `id_materia` int(10) NOT NULL,
   `id_alumno` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `paralelo`
+--
+
+CREATE TABLE `paralelo` (
+  `id_paralelo` int(10) NOT NULL,
+  `nombre_paralelo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_materia` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -234,6 +245,13 @@ ALTER TABLE `materia_alumno`
   ADD KEY `fk_alumno_materia` (`id_alumno`);
 
 --
+-- Indices de la tabla `paralelo`
+--
+ALTER TABLE `paralelo`
+  ADD PRIMARY KEY (`id_paralelo`),
+  ADD KEY `fk_paralelo_materia` (`id_materia`);
+
+--
 -- Indices de la tabla `periodo`
 --
 ALTER TABLE `periodo`
@@ -314,6 +332,12 @@ ALTER TABLE `materia_alumno`
   MODIFY `id_matalu` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `paralelo`
+--
+ALTER TABLE `paralelo`
+  MODIFY `id_paralelo` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `periodo`
 --
 ALTER TABLE `periodo`
@@ -378,6 +402,12 @@ ALTER TABLE `materia`
 ALTER TABLE `materia_alumno`
   ADD CONSTRAINT `fk_alumno_materia` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`),
   ADD CONSTRAINT `fk_materia_alumno` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
+
+--
+-- Filtros para la tabla `paralelo`
+--
+ALTER TABLE `paralelo`
+  ADD CONSTRAINT `fk_paralelo_materia` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
 
 --
 -- Filtros para la tabla `pregunta`
