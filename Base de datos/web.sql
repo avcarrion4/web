@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2018 a las 00:22:55
+-- Tiempo de generación: 15-07-2018 a las 00:48:43
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -37,6 +37,18 @@ CREATE TABLE `alumno` (
   `correo_alumno` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `edad_alumno` int(10) NOT NULL,
   `id_discapacidad` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumno_paralelo`
+--
+
+CREATE TABLE `alumno_paralelo` (
+  `id_alupar` int(10) NOT NULL,
+  `id_alumno` int(10) NOT NULL,
+  `id_paralelo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -101,18 +113,6 @@ CREATE TABLE `materia` (
   `id_materia` int(10) NOT NULL,
   `nombre_materia` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `id_titulacion` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia_alumno`
---
-
-CREATE TABLE `materia_alumno` (
-  `id_matalu` int(10) NOT NULL,
-  `id_materia` int(10) NOT NULL,
-  `id_alumno` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -203,6 +203,14 @@ ALTER TABLE `alumno`
   ADD KEY `fk_alumno_discapacidad` (`id_discapacidad`);
 
 --
+-- Indices de la tabla `alumno_paralelo`
+--
+ALTER TABLE `alumno_paralelo`
+  ADD PRIMARY KEY (`id_alupar`),
+  ADD KEY `fk_alumno_paralelo` (`id_paralelo`),
+  ADD KEY `fk_paralelo_alumno` (`id_alumno`);
+
+--
 -- Indices de la tabla `area`
 --
 ALTER TABLE `area`
@@ -235,14 +243,6 @@ ALTER TABLE `docente_materia`
 ALTER TABLE `materia`
   ADD PRIMARY KEY (`id_materia`),
   ADD KEY `fk_materia_titulacion` (`id_titulacion`);
-
---
--- Indices de la tabla `materia_alumno`
---
-ALTER TABLE `materia_alumno`
-  ADD PRIMARY KEY (`id_matalu`),
-  ADD KEY `fk_materia_alumno` (`id_materia`),
-  ADD KEY `fk_alumno_materia` (`id_alumno`);
 
 --
 -- Indices de la tabla `paralelo`
@@ -296,6 +296,12 @@ ALTER TABLE `alumno`
   MODIFY `id_alumno` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `alumno_paralelo`
+--
+ALTER TABLE `alumno_paralelo`
+  MODIFY `id_alupar` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
@@ -324,12 +330,6 @@ ALTER TABLE `docente_materia`
 --
 ALTER TABLE `materia`
   MODIFY `id_materia` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `materia_alumno`
---
-ALTER TABLE `materia_alumno`
-  MODIFY `id_matalu` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `paralelo`
@@ -378,6 +378,13 @@ ALTER TABLE `alumno`
   ADD CONSTRAINT `fk_alumno_discapacidad` FOREIGN KEY (`id_discapacidad`) REFERENCES `discapacidad` (`id_discapacidad`);
 
 --
+-- Filtros para la tabla `alumno_paralelo`
+--
+ALTER TABLE `alumno_paralelo`
+  ADD CONSTRAINT `fk_alumno_paralelo` FOREIGN KEY (`id_paralelo`) REFERENCES `paralelo` (`id_paralelo`),
+  ADD CONSTRAINT `fk_paralelo_alumno` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`);
+
+--
 -- Filtros para la tabla `area`
 --
 ALTER TABLE `area`
@@ -395,13 +402,6 @@ ALTER TABLE `docente_materia`
 --
 ALTER TABLE `materia`
   ADD CONSTRAINT `fk_materia_titulacion` FOREIGN KEY (`id_titulacion`) REFERENCES `titulacion` (`id_titulacion`);
-
---
--- Filtros para la tabla `materia_alumno`
---
-ALTER TABLE `materia_alumno`
-  ADD CONSTRAINT `fk_alumno_materia` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`),
-  ADD CONSTRAINT `fk_materia_alumno` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
 
 --
 -- Filtros para la tabla `paralelo`
