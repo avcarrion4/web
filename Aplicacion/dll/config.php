@@ -1,10 +1,10 @@
 <?php
 /*Datos de la aplicacion*/
-	$site_name="Pruebas";
-	$url_site="http://127.0.0.1/Ing_web/proyecto_pruebas/";
+	$site_name="Web";
+	$url_site="http://127.0.0.1/Ing_web/web/";
 
 	/* Datos de la base de datos*/
 	$db_usr="root";
 	$db_pass="";
-	$db_name="test";
+	$db_name="web";
 	$db_host="127.0.0.1";
