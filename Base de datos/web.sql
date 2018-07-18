@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2018 a las 08:27:47
+-- Tiempo de generación: 18-07-2018 a las 08:35:47
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -567,7 +567,7 @@ CREATE TABLE `resultado` (
   `cedula_alumno` int(10) NOT NULL,
   `id_prueba` int(10) NOT NULL,
   `id_pregunta` int(10) NOT NULL,
-  `valor` tinyint(1) NOT NULL
+  `valor` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
