@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2018 a las 00:06:59
+-- Tiempo de generación: 18-07-2018 a las 08:27:47
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -112,6 +112,64 @@ CREATE TABLE `alumno_paralelo` (
   `id_alumno` int(10) NOT NULL,
   `id_paralelo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `alumno_paralelo`
+--
+
+INSERT INTO `alumno_paralelo` (`id_alupar`, `id_alumno`, `id_paralelo`) VALUES
+(155, 20, 31),
+(156, 63, 32),
+(157, 53, 31),
+(158, 60, 32),
+(159, 26, 31),
+(160, 55, 32),
+(161, 37, 31),
+(162, 62, 32),
+(163, 41, 31),
+(164, 9, 32),
+(165, 49, 31),
+(166, 21, 31),
+(167, 43, 32),
+(168, 52, 32),
+(169, 44, 31),
+(170, 47, 32),
+(171, 30, 31),
+(172, 10, 32),
+(173, 39, 31),
+(174, 16, 32),
+(175, 35, 32),
+(176, 8, 31),
+(177, 59, 32),
+(178, 22, 31),
+(179, 61, 32),
+(180, 48, 31),
+(181, 17, 32),
+(182, 29, 31),
+(183, 32, 32),
+(184, 57, 31),
+(185, 33, 32),
+(186, 50, 31),
+(187, 24, 32),
+(188, 51, 31),
+(189, 19, 32),
+(190, 45, 31),
+(191, 15, 32),
+(192, 34, 31),
+(193, 40, 32),
+(194, 38, 31),
+(195, 36, 32),
+(196, 27, 31),
+(197, 11, 32),
+(198, 18, 31),
+(199, 31, 32),
+(200, 54, 31),
+(201, 46, 32),
+(202, 23, 31),
+(203, 25, 32),
+(204, 42, 31),
+(205, 58, 32),
+(206, 56, 31);
 
 -- --------------------------------------------------------
 
@@ -228,6 +286,44 @@ CREATE TABLE `docente_materia` (
   `id_docente` int(10) NOT NULL,
   `id_materia` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `docente_materia`
+--
+
+INSERT INTO `docente_materia` (`id_docmat`, `id_docente`, `id_materia`) VALUES
+(1, 33, 1),
+(2, 5, 1),
+(3, 29, 2),
+(4, 28, 2),
+(5, 23, 3),
+(6, 22, 3),
+(7, 10, 4),
+(8, 16, 4),
+(9, 15, 5),
+(10, 7, 5),
+(11, 17, 6),
+(12, 8, 6),
+(13, 3, 7),
+(14, 24, 7),
+(15, 31, 8),
+(16, 19, 8),
+(17, 32, 9),
+(18, 9, 9),
+(19, 27, 10),
+(20, 25, 10),
+(21, 4, 11),
+(22, 11, 11),
+(23, 13, 12),
+(24, 12, 12),
+(25, 20, 13),
+(26, 2, 13),
+(27, 18, 14),
+(28, 14, 14),
+(29, 21, 15),
+(30, 6, 15),
+(31, 30, 16),
+(32, 26, 16);
 
 -- --------------------------------------------------------
 
@@ -463,6 +559,20 @@ INSERT INTO `respuesta` (`id_respuesta`, `opcion_respuesta`, `verificacion`, `id
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `resultado`
+--
+
+CREATE TABLE `resultado` (
+  `id_resultado` int(10) NOT NULL,
+  `cedula_alumno` int(10) NOT NULL,
+  `id_prueba` int(10) NOT NULL,
+  `id_pregunta` int(10) NOT NULL,
+  `valor` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `titulacion`
 --
 
@@ -574,6 +684,12 @@ ALTER TABLE `respuesta`
   ADD KEY `fk_respuesta_pregunta` (`id_pregunta`);
 
 --
+-- Indices de la tabla `resultado`
+--
+ALTER TABLE `resultado`
+  ADD PRIMARY KEY (`id_resultado`);
+
+--
 -- Indices de la tabla `titulacion`
 --
 ALTER TABLE `titulacion`
@@ -594,7 +710,7 @@ ALTER TABLE `alumno`
 -- AUTO_INCREMENT de la tabla `alumno_paralelo`
 --
 ALTER TABLE `alumno_paralelo`
-  MODIFY `id_alupar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alupar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT de la tabla `area`
@@ -618,7 +734,7 @@ ALTER TABLE `docente`
 -- AUTO_INCREMENT de la tabla `docente_materia`
 --
 ALTER TABLE `docente_materia`
-  MODIFY `id_docmat` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_docmat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
@@ -655,6 +771,12 @@ ALTER TABLE `prueba`
 --
 ALTER TABLE `respuesta`
   MODIFY `id_respuesta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `resultado`
+--
+ALTER TABLE `resultado`
+  MODIFY `id_resultado` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `titulacion`
