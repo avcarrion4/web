@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2018 a las 08:35:47
+-- Tiempo de generación: 18-07-2018 a las 09:05:41
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -234,6 +234,7 @@ CREATE TABLE `docente` (
   `cedula_docente` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `telefono_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `correo_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `docente_pass` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `titulo_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -241,39 +242,39 @@ CREATE TABLE `docente` (
 -- Volcado de datos para la tabla `docente`
 --
 
-INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apellido_docente`, `apellido2_docente`, `cedula_docente`, `telefono_docente`, `correo_docente`, `titulo_docente`) VALUES
-(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'Docente1@utpl.edu.ec', 'Ing'),
-(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'Docente2@utpl.edu.ec', 'Ing'),
-(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'Docente3@utpl.edu.ec', 'Ing'),
-(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'Docente4@utpl.edu.ec', 'Ing'),
-(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'Docente5@utpl.edu.ec', 'Ing'),
-(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'Docente6@utpl.edu.ec', 'Ing'),
-(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'Docente7@utpl.edu.ec', 'Ing'),
-(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'Docente8@utpl.edu.ec', 'Ing'),
-(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'Docente9@utpl.edu.ec', 'Ing'),
-(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'Docente10@utpl.edu.ec', 'Ing'),
-(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'Docente11@utpl.edu.ec', 'Ing'),
-(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'Docente12@utpl.edu.ec', 'Ing'),
-(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'Docente13@utpl.edu.ec', 'Ing'),
-(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'Docente14@utpl.edu.ec', 'Ing'),
-(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'Docente15@utpl.edu.ec', 'Ing'),
-(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'Docente16@utpl.edu.ec', 'Ing'),
-(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'Docente17@utpl.edu.ec', 'Ing'),
-(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'Docente18@utpl.edu.ec', 'Ing'),
-(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'Docente19@utpl.edu.ec', 'Ing'),
-(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'Docente20@utpl.edu.ec', 'Ing'),
-(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'Docente21@utpl.edu.ec', 'Ing'),
-(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'Docente22@utpl.edu.ec', 'Ing'),
-(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'Docente23@utpl.edu.ec', 'Ing'),
-(25, 'Docente241', 'Docente242', 'Docentea241', 'Docentea242', '1924', '095024', 'Docente24@utpl.edu.ec', 'Ing'),
-(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'Docente25@utpl.edu.ec', 'Ing'),
-(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'Docente26@utpl.edu.ec', 'Ing'),
-(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'Docente27@utpl.edu.ec', 'Ing'),
-(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'Docente28@utpl.edu.ec', 'Ing'),
-(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'Docente29@utpl.edu.ec', 'Ing'),
-(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'Docente30@utpl.edu.ec', 'Ing'),
-(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'Docente31@utpl.edu.ec', 'Ing'),
-(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'Docente32@utpl.edu.ec', 'Ing');
+INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apellido_docente`, `apellido2_docente`, `cedula_docente`, `telefono_docente`, `correo_docente`, `docente_pass`, `titulo_docente`) VALUES
+(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'docente1@utpl.edu.ec', '1234', 'Ing'),
+(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'docente2@utpl.edu.ec', '1234', 'Ing'),
+(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'docente3@utpl.edu.ec', '1234', 'Ing'),
+(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'docente4@utpl.edu.ec', '1234', 'Ing'),
+(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'docente5@utpl.edu.ec', '1234', 'Ing'),
+(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'docente6@utpl.edu.ec', '1234', 'Ing'),
+(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'docente7@utpl.edu.ec', '1234', 'Ing'),
+(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'docente8@utpl.edu.ec', '1234', 'Ing'),
+(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'docente9@utpl.edu.ec', '1234', 'Ing'),
+(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'docente10@utpl.edu.ec', '1234', 'Ing'),
+(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'docente11@utpl.edu.ec', '1234', 'Ing'),
+(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'docente12@utpl.edu.ec', '1234', 'Ing'),
+(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'docente13@utpl.edu.ec', '1234', 'Ing'),
+(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'docente14@utpl.edu.ec', '1234', 'Ing'),
+(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'docente15@utpl.edu.ec', '1234', 'Ing'),
+(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'docente16@utpl.edu.ec', '1234', 'Ing'),
+(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'docente17@utpl.edu.ec', '4321', 'Ing'),
+(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'docente18@utpl.edu.ec', '4321', 'Ing'),
+(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'docente19@utpl.edu.ec', '4321', 'Ing'),
+(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'docente20@utpl.edu.ec', '4321', 'Ing'),
+(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'docente21@utpl.edu.ec', '4321', 'Ing'),
+(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'docente22@utpl.edu.ec', '4321', 'Ing'),
+(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'docente23@utpl.edu.ec', '4321', 'Ing'),
+(25, 'Docente241', 'Docente242', 'Docentea241', '', '1924', '095024', 'docente24@utpl.edu.ec', '4321', 'Ing'),
+(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'docente25@utpl.edu.ec', '4321', 'Ing'),
+(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'docente26@utpl.edu.ec', '4321', 'Ing'),
+(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'docente27@utpl.edu.ec', '4321', 'Ing'),
+(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'docente28@utpl.edu.ec', '4321', 'Ing'),
+(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'docente29@utpl.edu.ec', '4321', 'Ing'),
+(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'docente30@utpl.edu.ec', '4321', 'Ing'),
+(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'docente31@utpl.edu.ec', '4321', 'Ing'),
+(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'docente32@utpl.edu.ec', '4321', 'Ing');
 
 -- --------------------------------------------------------
 
