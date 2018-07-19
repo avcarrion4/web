@@ -1,15 +1,11 @@
 <?php
+include("../dll/config.php");
+include("../dll/mysql.php");
+
 session_start();
 $ver= $_SESSION["id_docente"];
 
 $que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
-
-include("../dll/config.php");
-include("../dll/mysql.php");
-
-$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
