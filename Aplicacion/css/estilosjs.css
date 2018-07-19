@@ -12,7 +12,7 @@ body{
 }
 
 .wrap{
-	width: 800px;
+	/*width: 800px;*/
 	max-width: 90%;
 	margin: 30px auto;
 }
@@ -59,7 +59,6 @@ ul.tabs li a .tab-text{
 	text-align: justify;
 }
 
-
 @media screen and (max-width: 700px){
 	ul.tabs li{
 		width: none;
@@ -80,4 +79,25 @@ ul.tabs li a .tab-text{
 	.secciones article{
 		padding: 20px;
 	}
+}
+
+/*------------------------*/
+.form-group label{
+	display: block;
+	padding: 1em 0 0.5em 0;
+	color: #5D0000;
+}
+.form-control{
+	margin-left: 1em;
+	padding: 0.5em 1em;
+	width: 40%;
+	border: 1px solid #999;
+	border-radius: 5px;
+}
+button{
+	background: #5D0000;
+	color: #fff;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	border: 0px solid #fff;
 }

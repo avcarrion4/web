@@ -4,8 +4,13 @@ include("../dll/mysql.php");
 
 session_start();
 $ver= $_SESSION["id_docente"];
-
+$nombres;
 $que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
+$datos=mysql_query($que) or die('Error de sql');
+if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
+	
+	$nombres = $res['nombre_docente'].' '. $res['apellido_docente'].' '. $res['apellido2_docente'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,7 +22,7 @@ $que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WH
 	<link rel="stylesheet" href="../css/font-awesome.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="../js/main.js"></script>
-	<h1></h1>
+	<h1><?php echo $nombres ?></h1>
 </head>
 <body>
 	<div class="wrap">
@@ -30,9 +35,41 @@ $que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WH
 		</ul>
 
 		<div class="secciones">
-			<section id="tab1">
-				fgfdgdfgfdgdffdg
-			</section>
+			<article id="tab1">
+
+			<form method="post" action="insertarprueba.php">
+				<div class="form-group">
+		    		<label for="nombres">Ingrese el nombre de la prueba</label>
+		    		<input type="text" class="form-control" id="nombre_prueba" name="nombre_prueba" placeholder="Ingrese el nombre">
+				</div>
+				<div class="form-group">
+		    		<label for="estado">Elija el estado de la prueba</label>
+		    		<select class="form-control" id="estado" name="estado_prueba">
+						<option value="1">Activa</option>
+						<option value="2">Inactiva</option>
+					</select>
+				<div class="form-group">
+		    		<label for="pregunta">Ingrese la pregunta 1</label>
+		    		<input type="text" class="form-control" id="titulo_pregunta" name="titulo_pregunta" placeholder="Ingrese la pregunta">
+				</div>
+				<div class="form-group">
+		    		<label for="respuesta">Ingrese la opcion 1</label>
+		    		<input type="text" class="form-control" id="opcion_respuesta" name="opcion_respuesta" placeholder="Ingrese la opcion">
+		    		<input type="Checkbox" name="verificacion">
+				</div>
+				<div class="form-group">
+		    		<label for="respuesta">Ingrese la opcion 2</label>
+		    		<input type="text" class="form-control" id="opcion_respuesta" name="opcion_respuesta" placeholder="Ingrese la opcion">
+				</div>
+				<div class="form-group">
+		    		<label for="respuesta">Ingrese la opcion 3</label>
+		    		<input type="text" class="form-control" id="opcion_respuesta" name="opcion_respuesta" placeholder="Ingrese la opcion">
+				</div>
+
+
+				<br><button>Guardar</button><br><br>
+			</form>
+			</article>
 
 			
 			<article id="tab2">
