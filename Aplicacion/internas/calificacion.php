@@ -2,17 +2,17 @@
 include("../dll/config.php");
 include("../dll/mysql.php");
 extract($_POST);
+echo $cedula;
+echo $codigo;
 
 function verificacion_respuesta($cont, $resp_preg , $resp_bd){
 	
 	
 	if ( $resp_preg == $resp_bd) {
-		echo "Correcto";
-		echo "<br>";
+		
 		return true;
 	}else{
-		echo "incorrecto";
-		echo "<br>";
+		
 		return false;
 	}
 	/*switch ($cont) {
@@ -48,7 +48,7 @@ function verificacion_respuesta($cont, $resp_preg , $resp_bd){
 	}*/
 }
 function verificacion_pregunta($a, $b , $c){
-	echo "$a";
+	
 	if (($a==true) and ($b==true) and ($c==true)) {
 		echo "Un punto";
 		echo "<br>";
@@ -57,6 +57,7 @@ function verificacion_pregunta($a, $b , $c){
 		echo "<br>";
 	}
 }
+
 $arrlength = count($resp);
 $query="SELECT id_prueba FROM `pregunta` WHERE id_pregunta=(SELECT id_pregunta FROM `respuesta` WHERE id_respuesta=$resp[0])";
 $preguntas=mysql_query($query) or die('Error de sql');
@@ -65,7 +66,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	
 }
 
-$query="select * from pregunta join respuesta on pregunta.id_pregunta=respuesta.id_pregunta where id_prueba=".$codigo." and pregunta.id_pregunta=11";
+$query="select * from pregunta join respuesta on pregunta.id_pregunta=respuesta.id_pregunta where id_prueba=".$codigo;
 
 $preguntas=mysql_query($query) or die('Error de sql');
 $cont=1;
@@ -76,13 +77,12 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	
 	for($x = 0; $x < $arrlength; $x++) {
 		if ($pregunta['id_respuesta']==$resp[$x]) {
-			echo $pregunta['id_respuesta']." 1";
+			/*echo $pregunta['id_respuesta']." 1";
 			echo "<br>";
 			echo "$resp[$x]"." 2";
 			echo "<br>";
-			echo "Iguales";
-			echo "<br>";
-			/*if ($pregunta['verificacion']==1) {
+			
+			if ($pregunta['verificacion']==1) {
 				echo "Verdadero";
 			}else{
 				echo "Falso";
@@ -94,21 +94,21 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 				case '1':
 					
 					$a=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
-					echo $a;
+					
 				break;
 				case '2':
 					
 					$b=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
-					echo "$b";
+					
 				break;
 				case '3':
 					
 					$c=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
-					echo "$c";
+					
 				break;
 
 			}
-			
+			break;
 		}else{
 			/*echo $pregunta['id_respuesta']." 1";
 			echo "<br>";
@@ -136,9 +136,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	    echo "<br>";*/
 	}
 	if ($cont==3) {
-		echo "$a";
-		echo "$b";
-		echo "$c";
+		
 		verificacion_pregunta($a,$b,$c);
 		$cont=1;
 	}else{
@@ -201,3 +199,4 @@ validar();*/
 		}
 	}*/
 ?>
+

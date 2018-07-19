@@ -19,9 +19,6 @@ extract($_POST);
     }
 
     validar($cedula);
-
-    
-
    //echo "<script>location.href='acceso_test.php'</script>";
 ?>
 
@@ -52,9 +49,9 @@ extract($_POST);
     <div class="form-group">
         <?php 
           
-            $query="Select * from pregunta where id_prueba="."$codigo".";";           
+            $query="Select * from pregunta where id_prueba="."$codigo";           
             $preguntas=mysql_query($query) or die('Error de sql');
-            /*while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
+            while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
               ?>
               <div class="form-group">
                 <br><label for="pregunta"><?php echo "$pregunta[titulo_pregunta]"; ?></label>
@@ -66,23 +63,7 @@ extract($_POST);
                 ?><input type="checkbox" name="resp[]";  value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
                   
                 }
-            }*/
-              $pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC);
-              ?>
-              <div class="form-group">
-                <br><label for="pregunta"><?php echo "$pregunta[titulo_pregunta]"; ?></label>
-              </div><?php 
-              
-              $query="Select * from respuesta where id_pregunta="."$pregunta[id_pregunta]";
-              $respuestas=mysql_query($query) or die('Error de sql');
-              while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
-                ?><input type="checkbox" name="resp[]";  value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
-                  
-                }
-            
-              
-          
-          
+            }            
         ?>
     </div>
     <br><button>Guardar</button><br><br>

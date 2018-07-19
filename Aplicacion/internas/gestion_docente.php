@@ -1,9 +1,11 @@
 <?php
-include("logueo.php");
-extract($_POST);
-$ver= $id_docente;
-$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$docente";
-echo $que;
+include("../dll/config.php");
+include("../dll/mysql.php");
+
+session_start();
+$ver= $_SESSION["id_docente"];
+
+$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,10 +30,11 @@ echo $que;
 		</ul>
 
 		<div class="secciones">
-			<article id="tab1">
-				<h1>Inicio</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea numquam odio voluptate. Aliquam incidunt similique, et quasi ducimus quos aut autem non dignissimos dicta sit provident, voluptatibus ut blanditiis perspiciatis cum, vel temporibus minima enim. Asperiores omnis placeat officiis a tenetur sit recusandae, reprehenderit neque. Tempora quibusdam, perferendis id ratione culpa dolorum! Nemo, animi? Eveniet eaque perspiciatis, libero quia, pariatur iusto, ipsum porro quod, ut tempora cum quo non illum. Non eligendi incidunt sequi, molestias quia perspiciatis architecto repudiandae quod.</p>
-			</article>
+			<section id="tab1">
+				fgfdgdfgfdgdffdg
+			</section>
+
+			
 			<article id="tab2">
 				<h1>Nosotros</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptates unde, consequuntur aliquid architecto rem numquam expedita minima dolorem pariatur recusandae, eius quod quia aspernatur id impedit, tenetur! Aspernatur incidunt molestiae dolores animi ea praesentium ipsam tenetur voluptas cupiditate perspiciatis eum nihil, natus exercitationem libero earum fuga dignissimos impedit numquam, quasi, placeat officiis voluptates, ad reprehenderit fugiat? Fugiat aperiam et magni, molestiae, numquam consectetur vitae sapiente cupiditate totam laboriosam voluptate obcaecati, aliquam placeat? Suscipit dolores fuga laudantium sed, qui magni iusto dolore quia. Quis fugit exercitationem porro. Rerum nihil omnis recusandae ratione fuga alias eligendi, earum sunt veritatis praesentium eum perspiciatis. Molestias deserunt, iure neque animi quod! Impedit reprehenderit cumque, numquam velit quae cum eius quidem similique laudantium hic deleniti!</p>
@@ -51,3 +54,4 @@ echo $que;
 </body>
 
 </html>
+
