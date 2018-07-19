@@ -1,8 +1,25 @@
 <?php
-include("logueo.php");
+include("../dll/config.php");
+include("../dll/mysql.php");
 extract($_POST);
-$ver= $id_docente;
-$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$docente";
+$id_docente=0;
+
+$query="Select id_docente from docente where correo_docente="."'$correo'"." and cedula_docente="."$password";
+$respuestas=mysql_query($query) or die('Error de sql');
+if ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
+	$id_docente=$respuesta['id_docente'];
+	
+	//echo "<script>location.href='gestion_docente.php'</script>";
+}else{
+
+	echo '<script> alert("Datos Incorrectos")</script>';
+	echo "<script>location.href='docente.php'</script>";
+}
+
+?>
+<?php
+
+$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$id_docente";
 echo $que;
 ?>
 <!DOCTYPE html>
@@ -51,3 +68,4 @@ echo $que;
 </body>
 
 </html>
+

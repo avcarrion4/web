@@ -16,7 +16,7 @@
 	      <button>create</button>
 	      <p class="message">Already registered? <a href="#">Sign In</a></p>
 	    </form>
-	    <form class="login-form" method="post" action="logueo.php">
+	    <form class="login-form" method="post" action="gestion_docente.php">
 	      <label>Correo</label>
 	      <input type="text" name="correo" placeholder="correo"/>
 	      <label >Contraseña</label>	      
