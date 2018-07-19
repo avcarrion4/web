@@ -13,4 +13,3 @@ if ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
 	echo '<script> alert("Datos Incorrectos")</script>';
 	echo "<script>location.href='docente.php'</script>";
 }
-?>
