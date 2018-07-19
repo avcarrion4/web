@@ -16,7 +16,7 @@
 	      <button>create</button>
 	      <p class="message">Already registered? <a href="#">Sign In</a></p>
 	    </form>
-	    <form class="login-form">
+	    <form class="login-form" method="post" action="">
 	      <label>Correo</label>
 	      <input type="text" placeholder="correo"/>
 	      <label >Contraseña</label>	      
