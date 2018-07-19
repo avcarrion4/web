@@ -16,11 +16,11 @@
 	      <button>create</button>
 	      <p class="message">Already registered? <a href="#">Sign In</a></p>
 	    </form>
-	    <form class="login-form" method="post" action="">
+	    <form class="login-form" method="post" action="logueo.php">
 	      <label>Correo</label>
-	      <input type="text" placeholder="correo"/>
+	      <input type="text" name="correo" placeholder="correo"/>
 	      <label >Contraseña</label>	      
-	      <input type="password" placeholder="password"/>
+	      <input type="password" name="password" placeholder="password"/>
 	      <button>login</button>
 	      
 	    </form>
