@@ -11,7 +11,7 @@ extract($_POST);
       $respuesta=mysql_query($query) or die('Error de sql');
       if ($pregunta=mysql_fetch_array($respuesta, MYSQL_ASSOC)) {
         $query2="SELECT cedula_alumno, id_prueba FROM `resultado` WHERE cedula_alumno=$cedula and id_prueba=$codigo";
-        $respuesta2=mysql_query($query) or die('Error de sql');
+        $respuesta2=mysql_query($query2) or die('Error de sql');
         if ($pregunta2=mysql_fetch_array($respuesta2, MYSQL_ASSOC)) {
           echo "<script> alert('Ya ha realizado la prueba')</script>";
           echo "<script>location.href='acceso_test.php'</script>";
@@ -38,14 +38,14 @@ extract($_POST);
   <title>Test</title>
   
   <meta charset="encoding">
-  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+  <link rel="stylesheet" type="text/css" href="../css/estilos2.css">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
   </script>
 </head>
 <body>
-  <h1>PRUEBA</h1> 
+  <h2>PRUEBA</h2> 
   <form method="post" action="calificacion.php">
     <div class="form-group">
         <label for="cedula">Cedula</label>
@@ -70,7 +70,7 @@ extract($_POST);
               $query="Select * from respuesta where id_pregunta="."$pregunta[id_pregunta]";
               $respuestas=mysql_query($query) or die('Error de sql');
               while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
-                ?><input type="checkbox" name="resp[]";  value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
+                ?><input type="checkbox" class="form-control" name="resp[]";  value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
                   
                 }
             }            

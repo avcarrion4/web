@@ -53,11 +53,11 @@ function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
 	
 	if (($a==true) and ($b==true) and ($c==true)) {
 		$query="insert into resultado values('',$ced,$cod,$p,'1') ";
-		//$insertar=mysql_query($query) or die('Error de sql');
+		$insertar=mysql_query($query) or die('Error de sql');
 		
 	}else{
 		$query="insert into resultado values('',$ced,$cod,$p,'0') ";
-		//$insertar=mysql_query($query) or die('Error de sql');
+		$insertar=mysql_query($query) or die('Error de sql');
 		
 	}
 }
