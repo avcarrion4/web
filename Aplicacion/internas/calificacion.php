@@ -3,7 +3,50 @@ include("../dll/config.php");
 include("../dll/mysql.php");
 extract($_POST);
 
-function validar(){
+
+$arrlength = count($resp);
+$query="SELECT id_prueba FROM `pregunta` WHERE id_pregunta=(SELECT id_pregunta FROM `respuesta` WHERE id_respuesta=$resp[0])";
+$preguntas=mysql_query($query) or die('Error de sql');
+while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
+	$codigo=$pregunta['id_prueba'];
+	
+}
+
+$query="select * from pregunta join respuesta on pregunta.id_pregunta=respuesta.id_pregunta where id_prueba=".$codigo;
+$preguntas=mysql_query($query) or die('Error de sql');
+while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
+	echo $pregunta['id_pregunta'];
+	echo "<br>";
+	echo $pregunta['id_respuesta'];
+	echo "<br>";
+	echo $pregunta['verificacion'];
+	echo "<br>";
+	for($x = 0; $x < $arrlength; $x++) {
+		echo $resp[$x];
+	    echo "<br>";
+		if ($pregunta['id_respuesta']==$resp[$x]) {
+			echo $pregunta['id_respuesta'];
+			echo "<br>";
+			echo "$resp[$x]";
+			echo "<br>";
+			echo "Iguales";
+			echo "<br>";
+		}else{
+			echo "no encontrado";
+			echo "<br>";
+		}
+	    /*echo $resp[$x];
+	    echo "<br>";*/
+	}
+
+}
+
+
+
+
+
+
+/*function validar(){
 	
 	for ($i=0; $i < $resp.length; $i++) { 
 		if ($ckbox[$i].checked==true) {
@@ -12,7 +55,7 @@ function validar(){
 	}
 }
 
-validar();
+validar();*/
 
 	/*$query="Select * from pregunta where id_prueba="."$codigo"." and id_pregunta="."$i".";";
 	$preguntas=mysql_query($query) or die('Error de sql');
