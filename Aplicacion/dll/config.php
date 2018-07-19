@@ -8,3 +8,7 @@
 	$db_pass="";
 	$db_name="web";
 	$db_host="127.0.0.1";
+
+	
+
+?>
