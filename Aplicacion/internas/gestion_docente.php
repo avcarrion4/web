@@ -1,8 +1,8 @@
 <?php
-include("logueo.php");
-extract($_POST);
-$ver= $id_docente;
-$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$docente";
+session_start();
+$ver= $_SESSION["id_docente"];
+echo "$ver";
+$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
 echo $que;
 ?>
 <!DOCTYPE html>
