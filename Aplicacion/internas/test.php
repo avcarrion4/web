@@ -38,6 +38,7 @@
   
   <meta charset="encoding">
   <link rel="stylesheet" type="text/css" href="../css/estilos2.css">
+  <link rel="stylesheet" type="text/css" href="../css/estilosAdmin.css">
 
   <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -49,6 +50,11 @@
   <main>
     <h2>PRUEBA</h2>
       <form method="post" action="calificacion.php">
+
+
+      <fieldset>
+
+<legend>Formulario de prueba</legend>
         <div class="form-group">
             <label for="cedula">Cedula</label>
             <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
@@ -78,6 +84,10 @@
                 }            
             ?>
         </div>
+
+
+
+        </fieldset>
         <br><button>Guardar</button><br><br>
       </form>
   </main> 
