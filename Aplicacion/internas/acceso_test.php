@@ -23,7 +23,7 @@
 <section id="cuerpo">
   
 <nav class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
+  <a href="../index.html" class="active">Home</a>
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
