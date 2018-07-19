@@ -1,3 +1,10 @@
+<?php
+include("logueo.php");
+extract($_POST);
+$ver= $id_docente;
+$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$docente";
+echo $que;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +13,9 @@
 	<title>Gestion Docente</title>
 	<link rel="stylesheet" href="../css/estilosjs.css">
 	<link rel="stylesheet" href="../css/font-awesome.css">
-
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="../js/main.js"></script>
+	<h1></h1>
 </head>
 <body>
 	<div class="wrap">
@@ -42,4 +49,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
