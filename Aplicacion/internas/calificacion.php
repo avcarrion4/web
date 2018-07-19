@@ -2,10 +2,11 @@
 include("../dll/config.php");
 include("../dll/mysql.php");
 extract($_POST);
-echo $cedula;
-echo $codigo;
+session_start();
+$ced=$_SESSION["cedula_estudiante"];
+$cod=$_SESSION["codigo"];
 
-function verificacion_respuesta($cont, $resp_preg , $resp_bd){
+function verificacion_respuesta($resp_preg , $resp_bd){
 	
 	
 	if ( $resp_preg == $resp_bd) {
@@ -47,14 +48,17 @@ function verificacion_respuesta($cont, $resp_preg , $resp_bd){
 		break;
 	}*/
 }
-function verificacion_pregunta($a, $b , $c){
+function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
+	
 	
 	if (($a==true) and ($b==true) and ($c==true)) {
-		echo "Un punto";
-		echo "<br>";
+		$query="insert into resultado values('',$ced,$cod,$p,'1') ";
+		//$insertar=mysql_query($query) or die('Error de sql');
+		
 	}else{
-		echo "Cero puntos";
-		echo "<br>";
+		$query="insert into resultado values('',$ced,$cod,$p,'0') ";
+		//$insertar=mysql_query($query) or die('Error de sql');
+		
 	}
 }
 
@@ -93,17 +97,17 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 				break;
 				case '1':
 					
-					$a=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
+					$a=verificacion_respuesta( 1,$pregunta['verificacion']);
 					
 				break;
 				case '2':
 					
-					$b=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
+					$b=verificacion_respuesta( 1,$pregunta['verificacion']);
 					
 				break;
 				case '3':
 					
-					$c=verificacion_respuesta($cont, 1,$pregunta['verificacion']);
+					$c=verificacion_respuesta(1,$pregunta['verificacion']);
 					
 				break;
 
@@ -120,13 +124,13 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 				case '0':
 				break;
 				case '1':
-					$a=verificacion_respuesta($cont, 0,$pregunta['verificacion']);
+					$a=verificacion_respuesta(0,$pregunta['verificacion']);
 				break;
 				case '2':
-					$b=verificacion_respuesta($cont, 0,$pregunta['verificacion']);
+					$b=verificacion_respuesta(0,$pregunta['verificacion']);
 				break;
 				case '3':
-					$c=verificacion_respuesta($cont, 0,$pregunta['verificacion']);
+					$c=verificacion_respuesta(0,$pregunta['verificacion']);
 				break;
 
 			}
@@ -137,66 +141,42 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	}
 	if ($cont==3) {
 		
-		verificacion_pregunta($a,$b,$c);
+		verificacion_pregunta($pregunta['id_pregunta'],$ced,$cod ,$a,$b,$c);
 		$cont=1;
 	}else{
 		$cont++;
 	}
 
 }
-
-
-
-
-
-
-/*function validar(){
 	
-	for ($i=0; $i < $resp.length; $i++) { 
-		if ($ckbox[$i].checked==true) {
-			echo $ckbox.value;
-		}
-	}
-}
+//echo "<script>location.href='../index.html'</script>";
+?>
 
-validar();*/
-
-	/*$query="Select * from pregunta where id_prueba="."$codigo"." and id_pregunta="."$i".";";
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resultado</title>
+</head>
+<body>
+<?php 
+	$query="SELECT * FROM resultado WHERE id_prueba=$cod";
 	$preguntas=mysql_query($query) or die('Error de sql');
+	$cont2=1;
 	while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
-	  ?>
-	  <div class="form-group">
-	    <label for="pregunta"><?php echo "$pregunta[titulo_pregunta]"; ?></label>
-	  </div><?php 
-	  
-	  $query="Select * from respuesta where id_pregunta="."$pregunta[id_pregunta]";
-	  $respuestas=mysql_query($query) or die('Error de sql');
-	  while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
-	    ?><input type="checkbox" name="<?php echo "$i"."$respuesta[opcion_respuesta]"; ?>" value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
-	      
-	    }
-	}*/
-	  
-
-
+		echo "Pregunta "."$cont2: ";
+		echo $pregunta['valor'];
+		echo "<br>";
+		$cont2++;
+		
+	}
+	session_destroy();
 ?>
+	<form action="../index.html">
+		<button>Salir</button>	
+	</form>
+	
 
+</body>
+</html>
 
-<?php
-	/*$respuestas1=array("a","b");
-	$respuestas2=array("b","c");
-	$preguntas=array($respuestas1,$respuestas2);
-	$p_length=count($preguntas);
-	for ($i=0; $i < $p_length ; $i++) { 
-		$r_length=count($preguntas[$i]);
-		$aux=$preguntas[$i];
-		echo "Pregunta ".$i;
-		for ($j=0; $j <$r_length ; $j++) { 	
-			echo "<br>";
-			echo $aux[$j];
-			echo "<br>";
-			
-		}
-	}*/
-?>
 

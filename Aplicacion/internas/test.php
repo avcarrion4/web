@@ -6,10 +6,20 @@ extract($_POST);
 ?>
 <?php
   
-    function validar($cedula){
+    function validar($cedula,$codigo){
       $query="Select * from alumno where cedula_alumno="."$cedula";
       $respuesta=mysql_query($query) or die('Error de sql');
       if ($pregunta=mysql_fetch_array($respuesta, MYSQL_ASSOC)) {
+        $query2="SELECT cedula_alumno, id_prueba FROM `resultado` WHERE cedula_alumno=$cedula and id_prueba=$codigo";
+        $respuesta2=mysql_query($query) or die('Error de sql');
+        if ($pregunta2=mysql_fetch_array($respuesta2, MYSQL_ASSOC)) {
+          echo "<script> alert('Ya ha realizado la prueba')</script>";
+          echo "<script>location.href='acceso_test.php'</script>";
+        }else{
+          session_start();
+          $_SESSION["cedula_estudiante"] = $cedula;
+          $_SESSION["codigo"] = $codigo;
+        }        
         //echo "$pregunta[nombre_alumno]";
       }else{
         echo "<script> alert('Cedula no encontrada')</script>";
@@ -18,7 +28,7 @@ extract($_POST);
       
     }
 
-    validar($cedula);
+    validar($cedula,$codigo);
    //echo "<script>location.href='acceso_test.php'</script>";
 ?>
 
@@ -39,17 +49,17 @@ extract($_POST);
   <form method="post" action="calificacion.php">
     <div class="form-group">
         <label for="cedula">Cedula</label>
-        <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $cedula ?>" disabled>
+        <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
     </div>
     <div class="form-group">
         <label for="codigo">Codigo</label>
-        <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo $codigo ?>" disabled>
+        <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
     </div>
     <div id="page-wrapper">
     <div class="form-group">
         <?php 
           
-            $query="Select * from pregunta where id_prueba="."$codigo";           
+            $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];           
             $preguntas=mysql_query($query) or die('Error de sql');
             while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
               ?>
