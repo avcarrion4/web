@@ -1,33 +1,15 @@
 <?php
-<<<<<<< HEAD
 session_start();
 $ver= $_SESSION["id_docente"];
-echo "$ver";
+
 $que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
-=======
+
 include("../dll/config.php");
 include("../dll/mysql.php");
-extract($_POST);
-$id_docente=0;
 
-$query="Select id_docente from docente where correo_docente="."'$correo'"." and cedula_docente="."$password";
-$respuestas=mysql_query($query) or die('Error de sql');
-if ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
-	$id_docente=$respuesta['id_docente'];
-	
-	//echo "<script>location.href='gestion_docente.php'</script>";
-}else{
+$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$ver";
 
-	echo '<script> alert("Datos Incorrectos")</script>';
-	echo "<script>location.href='docente.php'</script>";
-}
 
-?>
-<?php
-
-$que="Select nombre_docente, apellido_docente, apellido2_docente FROM docente WHERE id_docente ="."$id_docente";
->>>>>>> 3941e394ec62a2a3bd00a1c638078a28cc65851e
-echo $que;
 ?>
 <!DOCTYPE html>
 <html lang="es">
