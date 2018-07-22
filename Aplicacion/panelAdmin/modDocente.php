@@ -495,11 +495,10 @@ $sql2="select * from alumno where id_alumno=$aa";
     <th class="th">apellido2_alumno</th>
     <th class="th">cedula_alumno</th>
     <th class="th">telefono_alumno</th>
-    <th class="th">correo_alumno</th>
-    <th class="th">edad_alumno</th>
-    <th class="th">porcentaje_discapacidad	</th>
+    
+   
+   
     <th class="crud">Delete	</th>
-    </th>
     <th class="crud">Update	</th>
   </tr>
 
@@ -513,6 +512,9 @@ $sql2="select * from alumno where id_alumno=$aa";
 				<td><?php echo $line[4] ?></td>
 				<td><?php echo $line[5] ?></td>
 				<td><?php echo $line[6] ?></td>
+				
+				
+				
 
 				<?php 
 

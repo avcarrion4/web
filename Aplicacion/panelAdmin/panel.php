@@ -115,7 +115,7 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ALUMNOS</h2>
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN ALUMNOS</h2>
 <section id="cuerpoform">
 	<section id="info">
 

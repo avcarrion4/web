@@ -35,8 +35,8 @@ include("../dll/config.php");
 </nav>
 <hr id="hruno" color="yellow" size=1  ">
 <nav class="topnav" id="myTopnav">
-  <a href="panel.php" class="active">Alumnos</a>
-  <a href="doc.php">Docente</a>
+  <a href="panel.php" >Alumnos</a>
+  <a href="doc.php" class="active">Docente</a>
   <a href="mat.php">Materias</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -115,13 +115,13 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN DOCENTE</h2>
 <section id="cuerpoform">
 	<section id="info">
 
 				<section class="add">
 
-					<form id="fnuevo" action="adminInsert.php" method="post">
+					<form id="fnuevo" action="insrtdoc.php" method="post">
 
 
 <fieldset>
@@ -133,8 +133,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="nombre_alumno">Primer nombre </label>
-    	<input type="text" id="nombre_alumno" name="nombre_alumno" placeholder="nombre_alumno">
+		    <label for="nombre_docente">Primer nombre </label>
+    	<input type="text" id="nombre_docente" name="nombre_docente" placeholder="nombre_docente">
 
 
 
@@ -144,8 +144,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="nombre2_alumno"> Segundo nombre </label>
-    	<input type="text" id="nombre2_alumno" name="nombre2_alumno" placeholder="nombre2_alumno">
+		    <label for="nombre2_docente"> Segundo nombre </label>
+    	<input type="text" id="nombre2_docente" name="nombre2_docente" placeholder="nombre2_docente">
 
 
 
@@ -154,8 +154,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="apellido_alumno">Apellido paterno</label>
-    	<input type="text" id="apellido_alumno" name="apellido_alumno" placeholder="apellido_alumno">
+		    <label for="apellido_docente">Apellido paterno</label>
+    	<input type="text" id="apellido_docente" name="apellido_docente" placeholder="apellido_docente">
 
 
 
@@ -166,21 +166,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="apellido2_alumno">Apellido materno</label>
-    	<input type="text" id="apellido2_alumno" name="apellido2_alumno" placeholder="apellido2_alumno">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-
-
-		    <label for="cedula_alumno">Cedula</label>
-   	 	<input type="text" id="cedula_alumno" name="cedula_alumno" placeholder="cedula_alumno">
+		    <label for="apellido2_docente">Apellido materno</label>
+    	<input type="text" id="apellido2_docente" name="apellido2_docente" placeholder="apellido2_docente">
 
 
 
@@ -192,8 +179,21 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="telefono_alumno">Telefono</label>
-   	 	 	<input type="text" id="telefono_alumno" name="telefono_alumno" placeholder="telefono_alumno">
+		    <label for="cedula_docente">Cedula</label>
+   	 	<input type="text" id="cedula_docente" name="cedula_docente" placeholder="cedula_docente">
+
+
+
+		</div>
+
+
+
+
+		<div class="form-group">
+
+
+		    <label for="telefono_docente">Telefono</label>
+   	 	 	<input type="text" id="telefono_docente" name="telefono_docente" placeholder="telefono_docente">
 
 
 		</div>
@@ -203,8 +203,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="correo_alumno">Correo</label>
-   	 	 	 	<input type="text" id="correo_alumno" name="correo_alumno" placeholder="correo_alumno">
+		    <label for="correo_docente">Correo</label>
+   	 	 	 	<input type="text" id="correo_docente" name="correo_docente" placeholder="correo_docente">
 
 
 
@@ -214,8 +214,8 @@ function myFunction() {
 <div class="form-group">
 
 
-		    <label for="edad_alumno">Edad</label>
-   	 	 	 	 	<input type="text" id="edad_alumno" name="edad_alumno" placeholder="edad_alumno">
+		    <label for="pass">Pass</label>
+   	 	 	 	 	<input type="text" id="pass" name="pass" placeholder="pass">
 
 
 
@@ -225,51 +225,14 @@ function myFunction() {
 
 
 		<div class="form-group">
-		    <label for="porcentaje_discapacidad">Porcentaje</label>
-		    <select class="form-control" id="porcentaje_discapacidad" name="porcentaje_discapacidad" >
+		    <label for="titulo">Titulo</label>
+   	 	 	 	 	<input type="text" id="titulo" name="titulo" placeholder="titulo">
 
-		   <?php
-
-		   	for ($i=1; $i <=100 ; $i++) { 
-
-		   		?>
-		   		
-		   	
-
-
-		    			<option value="<?php echo $i; ?>"> <?php  echo $i;  ?></option>
-		<?php
-	
-
-}
-
-		?>
-		    
-			</select>
 		</div>
 
 
 
-<div class="form-group">
-		    <label for="id_discapacidad">Discapacidad</label>
-		    <select class="form-control" id="id_discapacidad" name="id_discapacidad" >
 
-		    <?php
-
-		    $query="select * from discapacidad";
-		    $resp=mysql_query($query) or die('error');
-
-		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
-
-
-			?>
-			<option value="<?php echo $r['id_discapacidad']; ?>"> <?php  echo $r['nombre_discapacidad'];  ?></option>
-		<?php
-	}
-		?>
-		    
-			</select>
-		</div>
 
 
 
@@ -293,23 +256,21 @@ function myFunction() {
 			
 
 				<?php  
-			$sql2="select * from alumno";
+			$sql2="select * from docente";
 			$result=mysql_query($sql2) or die ("error de id max");
 						
 			?>
 					<table id="customers">
   <tr>
-    <th class="th">nombre_alumno </th>
-    <th class="th">nombre2_alumno</th>
-    <th class="th">apellido_alumno</th>
-    <th class="th">apellido2_alumno</th>
-    <th class="th">cedula_alumno</th>
-    <th class="th">telefono_alumno</th>
-    <th class="th">correo_alumno</th>
-    <th class="th">edad_alumno</th>
-    <th class="th">porcentaje_discapacidad	</th>
-    <th class="th">id_discapacidad	</th>
-    </th>
+    <th class="th">nombre_docente </th>
+    <th class="th">nombre2_docente</th>
+    <th class="th">apellido_docente</th>
+    <th class="th">apellido2_docente</th>
+    <th class="th">cedula_docente</th>
+    
+    <th class="th">correo_docente</th>
+    <th class="th">Pass</th>
+    
     <th class="crud">Delete	</th>
     <th class="crud">Update	</th>
   </tr>
@@ -323,11 +284,11 @@ function myFunction() {
 				<td><?php echo $line[3] ?></td>
 				<td><?php echo $line[4] ?></td>
 				<td><?php echo $line[5] ?></td>
-				<td><?php echo $line[6] ?></td>
+				
 				<td><?php echo $line[7] ?></td>
 				<td><?php echo $line[8] ?></td>
-				<td><?php echo $line[9] ?></td>
-				<td><?php echo $line[10] ?></td>
+				
+				
 
 				<?php 
 
@@ -343,7 +304,7 @@ function myFunction() {
  
 </table>
 
-				</section>
+				</section></section>
 <footer>
   <div class="centered clearfix">
     <div class="footer-logo">
