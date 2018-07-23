@@ -10,22 +10,14 @@ $datos=mysql_query($que) or die('Error de sql');
 if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 	$nombres = $res['nombre_docente'].' '. $res['apellido_docente'].' '. $res['apellido2_docente'];
 }
-
-$listar= "Select nombre_materia FROM materia m WHERE m.id_materia=(
-	Select dp.id_paralelo FROM docente_paralelo dp WHERE dp.id_docente ="." $ver)";
-$materias=mysql_query($listar) or die('Error de sql');
-if ($materia=mysql_fetch_array($materias, MYSQL_ASSOC)) {
-	$materiad = $materia['nombre_materia'];
-}
-
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="encoding">
+<head>	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Gestion Docente</title>
+	<meta charset="UTF-8">
+
 	<link rel="stylesheet" href="../css/estilosjs.css">
 	<link rel="stylesheet" href="../css/font-awesome.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -81,15 +73,24 @@ if ($materia=mysql_fetch_array($materias, MYSQL_ASSOC)) {
 			
 			<article id="tab2">
 				<div class="form-group">
-		    		<label for="tipo_user">Tipo de usuario</label>
-		    		<select class="form-control" id="tipo_user" name="tipo []" multiple>
-					<option><?php echo $materiad ?></option>
-					</select>
+		    		<label for="materias">Materias asignadas</label>
+		    		<select class="form-control" id="materias" name="materia []" multiple>
+		    			<?php 
+		    			$ry="Select * FROM materia m WHERE m.id_materia IN (Select dp.id_paralelo FROM docente_paralelo dp WHERE dp.id_docente ="." $ver)";
+		    			$res=mysql_query($ry) or die ('error de sql');
+		    			while ($er = mysql_fetch_array($res,MYSQL_ASSOC)) {
+		    				?>
+		    			<option value = "<?php echo $er['id_materia'];?>"><?php echo $er['nombre_materia'];?></option>
+		    		<?php
+		    	}
+		    	?>
+		    	</select>
 			</div>
 			
 			</article>
 			<article id="tab3">
 				<h1>Generar Reporte</h1>
+				<p>Hola crístian mñacas</p>
 				
 			</article>
 			<article id="tab4">

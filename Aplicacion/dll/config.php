@@ -9,6 +9,6 @@
 	$db_name="web";
 	$db_host="127.0.0.1";
 
-	
+	mysql_set_charset('utf8');
 
 ?>
