@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2018 a las 09:05:41
+-- Tiempo de generación: 23-07-2018 a las 06:53:55
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -279,52 +279,52 @@ INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apell
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docente_materia`
+-- Estructura de tabla para la tabla `docente_paralelo`
 --
 
-CREATE TABLE `docente_materia` (
-  `id_docmat` int(10) NOT NULL,
+CREATE TABLE `docente_paralelo` (
+  `id_docpar` int(10) NOT NULL,
   `id_docente` int(10) NOT NULL,
-  `id_materia` int(10) NOT NULL
+  `id_paralelo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `docente_materia`
+-- Volcado de datos para la tabla `docente_paralelo`
 --
 
-INSERT INTO `docente_materia` (`id_docmat`, `id_docente`, `id_materia`) VALUES
-(1, 33, 1),
-(2, 5, 1),
-(3, 29, 2),
-(4, 28, 2),
-(5, 23, 3),
-(6, 22, 3),
-(7, 10, 4),
-(8, 16, 4),
-(9, 15, 5),
-(10, 7, 5),
-(11, 17, 6),
-(12, 8, 6),
-(13, 3, 7),
-(14, 24, 7),
-(15, 31, 8),
-(16, 19, 8),
-(17, 32, 9),
-(18, 9, 9),
-(19, 27, 10),
-(20, 25, 10),
-(21, 4, 11),
-(22, 11, 11),
-(23, 13, 12),
-(24, 12, 12),
-(25, 20, 13),
-(26, 2, 13),
-(27, 18, 14),
-(28, 14, 14),
-(29, 21, 15),
-(30, 6, 15),
-(31, 30, 16),
-(32, 26, 16);
+INSERT INTO `docente_paralelo` (`id_docpar`, `id_docente`, `id_paralelo`) VALUES
+(1, 2, 1),
+(2, 3, 2),
+(3, 4, 3),
+(4, 5, 4),
+(5, 6, 5),
+(6, 7, 6),
+(7, 8, 7),
+(8, 9, 8),
+(9, 10, 9),
+(10, 11, 10),
+(11, 12, 11),
+(12, 13, 12),
+(13, 14, 13),
+(14, 15, 14),
+(15, 16, 15),
+(16, 17, 16),
+(17, 18, 17),
+(18, 19, 18),
+(19, 20, 19),
+(20, 21, 20),
+(21, 22, 21),
+(22, 23, 22),
+(23, 24, 23),
+(24, 25, 24),
+(25, 26, 25),
+(26, 27, 26),
+(27, 28, 27),
+(28, 29, 28),
+(29, 30, 29),
+(30, 31, 30),
+(31, 32, 31),
+(32, 33, 32);
 
 -- --------------------------------------------------------
 
@@ -335,6 +335,7 @@ INSERT INTO `docente_materia` (`id_docmat`, `id_docente`, `id_materia`) VALUES
 CREATE TABLE `materia` (
   `id_materia` int(10) NOT NULL,
   `nombre_materia` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ciclo` int(2) NOT NULL,
   `id_titulacion` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -342,23 +343,23 @@ CREATE TABLE `materia` (
 -- Volcado de datos para la tabla `materia`
 --
 
-INSERT INTO `materia` (`id_materia`, `nombre_materia`, `id_titulacion`) VALUES
-(1, 'Mercado de valores', 1),
-(2, 'Valoración de Empresas', 1),
-(3, 'Teoría de Acumulación y Crecimiento', 2),
-(4, 'Economía Política', 2),
-(5, 'Química General', 3),
-(6, 'Biología General', 3),
-(7, 'Morfofuncional I', 4),
-(8, 'Introducción a los estudios médicos', 4),
-(9, 'Derecho Constitucional', 5),
-(10, 'Introducción al Derecho', 5),
-(11, 'Reading and Writing I', 6),
-(12, 'Communicative Grammar I', 6),
-(13, 'Introducción a la Arquitectura', 7),
-(14, 'Dibujo Artístico', 7),
-(15, 'Lógica de la Programación', 8),
-(16, 'Fundamentos Informáticos', 8);
+INSERT INTO `materia` (`id_materia`, `nombre_materia`, `ciclo`, `id_titulacion`) VALUES
+(1, 'Mercado de valores', 10, 1),
+(2, 'Valoración de Empresas', 10, 1),
+(3, 'Teoría de Acumulación y Crecimiento', 9, 2),
+(4, 'Economía Política', 9, 2),
+(5, 'Química General', 8, 3),
+(6, 'Biología General', 8, 3),
+(7, 'Morfofuncional I', 7, 4),
+(8, 'Introducción a los estudios médicos', 7, 4),
+(9, 'Derecho Constitucional', 6, 5),
+(10, 'Introducción al Derecho', 6, 5),
+(11, 'Reading and Writing I', 5, 6),
+(12, 'Communicative Grammar I', 4, 6),
+(13, 'Introducción a la Arquitectura', 3, 7),
+(14, 'Dibujo Artístico', 2, 7),
+(15, 'Lógica de la Programación', 1, 8),
+(16, 'Fundamentos Informáticos', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -465,6 +466,7 @@ INSERT INTO `pregunta` (`id_pregunta`, `titulo_pregunta`, `id_prueba`) VALUES
 
 CREATE TABLE `prueba` (
   `id_prueba` int(10) NOT NULL,
+  `codigo_prueba` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `nombre_prueba` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `estado_prueba` tinyint(1) NOT NULL,
   `id_docente` int(10) NOT NULL
@@ -474,39 +476,39 @@ CREATE TABLE `prueba` (
 -- Volcado de datos para la tabla `prueba`
 --
 
-INSERT INTO `prueba` (`id_prueba`, `nombre_prueba`, `estado_prueba`, `id_docente`) VALUES
-(2, 'Mercado de valores	A', 0, 33),
-(3, 'Valoracion de Empresas	A', 1, 28),
-(4, 'Teoria de acumulacion y Crecimiento	A', 1, 22),
-(5, 'Economia Politica	A', 1, 10),
-(6, 'Quimica General	A', 0, 15),
-(7, 'Biologia General	A', 1, 17),
-(8, 'Morfofuncional I	A', 0, 3),
-(9, 'Introduccion a los estudios medicos	A', 1, 31),
-(10, 'Derecho Constitucional	A', 1, 32),
-(11, 'Introduccion al derecho	A', 1, 27),
-(12, 'Reading and Writing I	A', 0, 4),
-(13, 'Comunicative Gramar I	A', 1, 13),
-(14, 'Introduccion a la arquitectura	A', 0, 20),
-(15, 'Dibujo artistico	A', 1, 18),
-(16, 'Logica de la programacion	A', 1, 21),
-(17, 'Fundamentos informaticos	A', 1, 30),
-(18, 'Mercado de valores	B', 0, 5),
-(19, 'Valoracion de Empresas	B', 1, 29),
-(20, 'Teoria de acumulacion y Crecimiento	B', 1, 23),
-(21, 'Economia Politica	B', 0, 16),
-(22, 'Quimica General	B', 1, 7),
-(23, 'Biologia General	B', 0, 8),
-(24, 'Morfofuncional I	B', 0, 24),
-(25, 'Introduccion a los estudios medicos	B', 1, 19),
-(26, 'Derecho Constitucional	B', 1, 9),
-(27, 'Introduccion al derecho	B', 0, 25),
-(28, 'Reading and Writing I	B', 1, 11),
-(29, 'Comunicative Gramar I	B', 1, 12),
-(30, 'Introduccion a la arquitectura	B', 0, 2),
-(31, 'Dibujo artistico	B', 1, 14),
-(32, 'Logica de la programacion	B', 0, 6),
-(33, 'Fundamentos informaticos	B', 1, 26);
+INSERT INTO `prueba` (`id_prueba`, `codigo_prueba`, `nombre_prueba`, `estado_prueba`, `id_docente`) VALUES
+(2, '0001', 'Mercado de valores	A', 0, 33),
+(3, '0002', 'Valoracion de Empresas	A', 1, 28),
+(4, '0003', 'Teoria de acumulacion y Crecimiento	A', 1, 22),
+(5, '0004', 'Economia Politica	A', 1, 10),
+(6, '0005', 'Quimica General	A', 0, 15),
+(7, '0006', 'Biologia General	A', 1, 17),
+(8, '0007', 'Morfofuncional I	A', 0, 3),
+(9, '0008', 'Introduccion a los estudios medicos	A', 1, 31),
+(10, '0009', 'Derecho Constitucional	A', 1, 32),
+(11, '0010', 'Introduccion al derecho	A', 1, 27),
+(12, '0011', 'Reading and Writing I	A', 0, 4),
+(13, '0012', 'Comunicative Gramar I	A', 1, 13),
+(14, '0013', 'Introduccion a la arquitectura	A', 0, 20),
+(15, '0014', 'Dibujo artistico	A', 1, 18),
+(16, '0015', 'Logica de la programacion	A', 1, 21),
+(17, '0016', 'Fundamentos informaticos	A', 1, 30),
+(18, '0017', 'Mercado de valores	B', 0, 5),
+(19, '0018', 'Valoracion de Empresas	B', 1, 29),
+(20, '0019', 'Teoria de acumulacion y Crecimiento	B', 1, 23),
+(21, '0020', 'Economia Politica	B', 0, 16),
+(22, '0021', 'Quimica General	B', 1, 7),
+(23, '0022', 'Biologia General	B', 0, 8),
+(24, '0023', 'Morfofuncional I	B', 0, 24),
+(25, '0024', 'Introduccion a los estudios medicos	B', 1, 19),
+(26, '0025', 'Derecho Constitucional	B', 1, 9),
+(27, '0026', 'Introduccion al derecho	B', 0, 25),
+(28, '0027', 'Reading and Writing I	B', 1, 11),
+(29, '0028', 'Comunicative Gramar I	B', 1, 12),
+(30, '0029', 'Introduccion a la arquitectura	B', 0, 2),
+(31, '0030', 'Dibujo artistico	B', 1, 14),
+(32, '0031', 'Logica de la programacion	B', 0, 6),
+(33, '0032', 'Fundamentos informaticos	B', 1, 26);
 
 -- --------------------------------------------------------
 
@@ -636,12 +638,12 @@ ALTER TABLE `docente`
   ADD PRIMARY KEY (`id_docente`);
 
 --
--- Indices de la tabla `docente_materia`
+-- Indices de la tabla `docente_paralelo`
 --
-ALTER TABLE `docente_materia`
-  ADD PRIMARY KEY (`id_docmat`),
-  ADD KEY `fk_docente_materia` (`id_materia`),
-  ADD KEY `fk_materia_doccente` (`id_docente`);
+ALTER TABLE `docente_paralelo`
+  ADD PRIMARY KEY (`id_docpar`),
+  ADD KEY `fk_docente_paralelo` (`id_docente`),
+  ADD KEY `fk_paralelo_docente` (`id_paralelo`);
 
 --
 -- Indices de la tabla `materia`
@@ -732,16 +734,16 @@ ALTER TABLE `docente`
   MODIFY `id_docente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT de la tabla `docente_materia`
+-- AUTO_INCREMENT de la tabla `docente_paralelo`
 --
-ALTER TABLE `docente_materia`
-  MODIFY `id_docmat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+ALTER TABLE `docente_paralelo`
+  MODIFY `id_docpar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `id_materia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_materia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `paralelo`
@@ -783,7 +785,7 @@ ALTER TABLE `resultado`
 -- AUTO_INCREMENT de la tabla `titulacion`
 --
 ALTER TABLE `titulacion`
-  MODIFY `id_titulacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_titulacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -809,11 +811,11 @@ ALTER TABLE `area`
   ADD CONSTRAINT `fk_area_periodo` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`);
 
 --
--- Filtros para la tabla `docente_materia`
+-- Filtros para la tabla `docente_paralelo`
 --
-ALTER TABLE `docente_materia`
-  ADD CONSTRAINT `fk_docente_materia` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`),
-  ADD CONSTRAINT `fk_materia_doccente` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`);
+ALTER TABLE `docente_paralelo`
+  ADD CONSTRAINT `fk_docente_paralelo` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`),
+  ADD CONSTRAINT `fk_paralelo_docente` FOREIGN KEY (`id_paralelo`) REFERENCES `paralelo` (`id_paralelo`);
 
 --
 -- Filtros para la tabla `materia`
