@@ -1,7 +1,6 @@
 <?php
 include("../dll/config.php");
 include("../dll/mysql.php");
-header("Content-Type: text/html;charset=utf-8");
 session_start();
 $ver= $_SESSION["id_docente"];
 $nombres;
@@ -12,8 +11,8 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 	$nombres = $res['nombre_docente'].' '. $res['apellido_docente'].' '. $res['apellido2_docente'];
 }
 
-$listar= "Select nombre_materia FROM materia m WHERE m.id_materia=(SELECT id_materia FROM docente_materia WHERE id_docente ="." $ver)";
-	
+$listar= "Select nombre_materia FROM materia m WHERE m.id_materia=(
+	Select dp.id_paralelo FROM docente_paralelo dp WHERE dp.id_docente ="." $ver)";
 $materias=mysql_query($listar) or die('Error de sql');
 if ($materia=mysql_fetch_array($materias, MYSQL_ASSOC)) {
 	$materiad = $materia['nombre_materia'];
@@ -83,10 +82,11 @@ if ($materia=mysql_fetch_array($materias, MYSQL_ASSOC)) {
 			<article id="tab2">
 				<div class="form-group">
 		    		<label for="tipo_user">Tipo de usuario</label>
-		    		<select class="form-control" id="tipo_user" name="tipo">
-					<option value="1"><?php echo $materiad ?></option>
+		    		<select class="form-control" id="tipo_user" name="tipo []" multiple>
+					<option><?php echo $materiad ?></option>
 					</select>
 			</div>
+			
 			</article>
 			<article id="tab3">
 				<h1>Generar Reporte</h1>
