@@ -35,9 +35,9 @@ include("../dll/config.php");
 </nav>
 <hr id="hruno" color="yellow" size=1  ">
 <nav class="topnav" id="myTopnav">
-  <a href="#home" class="active">Alumnos</a>
-  <a href="#news">Docente</a>
-  <a href="#contact">Materias</a>
+  <a href="panel.php" class="active">Alumnos</a>
+  <a href="doc.php">Docente</a>
+  <a href="mat.php">Materias</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -115,7 +115,7 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN ALUMNOS</h2>
 <section id="cuerpoform">
 	<section id="info">
 
@@ -284,21 +284,63 @@ function myFunction() {
 
  	 </form>
 					
-				</section>
 
 
-				<hr id="hrdos" color="#000" style="margin-top: 1em;" size=1  ">
 
+
+<hr id="hrdos" color="#000" style="margin-top: 1em;" size=1  ">
+
+			
+
+				<?php  
+			$sql2="select * from alumno";
+			$result=mysql_query($sql2) or die ("error de id max");
+						
+			?>
+					<table id="customers">
+  <tr>
+    <th class="th">nombre_alumno </th>
+    <th class="th">nombre2_alumno</th>
+    <th class="th">apellido_alumno</th>
+    <th class="th">apellido2_alumno</th>
+    <th class="th">cedula_alumno</th>
+    <th class="th">telefono_alumno</th>
+    
+   
+   
+    <th class="crud">Delete	</th>
+    <th class="crud">Update	</th>
+  </tr>
+
+  <?php
+  while ($line=mysql_fetch_array($result)) {?>
+				<tr >
 				
-</section>
+				<td><?php echo $line[1] ?></td>
+				<td><?php echo $line[2] ?></td>
+				<td><?php echo $line[3] ?></td>
+				<td><?php echo $line[4] ?></td>
+				<td><?php echo $line[5] ?></td>
+				<td><?php echo $line[6] ?></td>
+				
+				
+				
 
+				<?php 
 
+			 $a=$line[0];
+				 ?>
+				
+				<td> <a href='aldelete.php?id=<?php echo $line[0] ?>'>Eliminar</a></td>
+				<td> <a href=  'modDocente.php?id=<?php echo  $a ?>' >Modificar</a></td>
 
+				</tr>
+				<?php } ?>
 
+ 
+</table>
 
-
-
-
+				</section></section>
 <footer>
   <div class="centered clearfix">
     <div class="footer-logo">
@@ -352,22 +394,13 @@ function myFunction() {
     </div>
   </div>
   <div class="bottom-bar">
-      All Rights Reserved © 2016 | <a href="">Privacy Policy</a> | <a href="">Terms of Service</a>
+      All Rights Reserved © 2018 | <a href="">Privacy Policy</a> | <a href="">Terms of Service</a>
   </div>
 </footer>
 
-
-
-
-
-
-
-
-
-
-
-</section>
-
-
 </body>
 </html>
+
+
+
+

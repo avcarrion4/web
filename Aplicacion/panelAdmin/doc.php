@@ -1,12 +1,17 @@
+<?php
+include("../dll/mysql.php");
+include("../dll/config.php");
 
-	<!DOCTYPE html>
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../css/csslogin.css">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/css.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/estilosAdmin.css">
 	<link rel="stylesheet" type="text/css" href="../css/cssfooter.css">
 	<script type="text/javascript" src="../css/footer.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
@@ -22,48 +27,51 @@
 	
 <section id="cuerpo">
 	
-<nav class="topnav" id="myTopnav">
-  <a href="#home" class="active">Salir</a>
+		<nav class="topnav" id="myTopnav" >
+  <a style="float: right;" href="../index.html" class="active">Salir</a>
+
   
+  
+</nav>
+<hr id="hruno" color="yellow" size=1  ">
+<nav class="topnav" id="myTopnav">
+  <a href="panel.php" >Alumnos</a>
+  <a href="doc.php" class="active">Docente</a>
+  <a href="mat.php">Materias</a>
+ 
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </nav>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+
+ <hr id="hruno" color="yellow" size=2  ">
 
 
 <header class="header-fixed">
 
-	<div class="header-limiter">
+	<section class="header-limiter">
 
 		<h1><a href="#">Evaluaciones  <span> Accesibles</span></a></h1>
 
 		
 
-	</div>
+	</section>
 
 </header>
-<div class="login-page">
-	  <div class="form">
-	    <form class="register-form">
-	      <input type="text" placeholder="name"/>
-	      <input type="password" placeholder="password"/>
-	      <input type="text" placeholder="email address"/>
-	      <button>create</button>
-	      <p class="message">Already registered? <a href="#">Sign In</a></p>
-	    </form>
-	    <form class="login-form" method="post" action="logueo.php">
-	      <label>Correo</label>
-	      <input type="text" name="correo" placeholder="correo"/>
-	      <label >Contraseña</label>	      
-	      <input type="password" name="password" placeholder="password"/>
-	      <button>login</button>
-	      
-	    </form>
-	  </div>
-	</div>
 
 <!-- You need this element to prevent the content of the page from jumping up -->
-<div class="header-fixed-placeholder"></div>
+<section class="header-fixed-placeholder"></section>
 
 <!-- The content of your page would go here. -->
 
@@ -106,33 +114,197 @@
 
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
-<section id="sld">
+
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN DOCENTE</h2>
+<section id="cuerpoform">
+	<section id="info">
+
+				<section class="add">
+
+					<form id="fnuevo" action="insrtdoc.php" method="post">
 
 
-<section id="captioned-gallery">
-   <figure class="slider">
-      <figure>
-         <img src="img/ciego.jpg" alt>
-         <figcaption>Evaluaciones a no Videntes, Accesibilidad</figcaption>
-      </figure>
-      <figure>
-         <img src="img/estudio.jpeg" alt>
-         <figcaption>La discapacidad visual no es un obstaculo</figcaption>
-      </figure>
-      <figure>
-         <img src="img/docente.jpg" alt>
-         <figcaption>Educacion accesible</figcaption>
-      </figure>
-      <figure> 
-         <img src="img/ciego.jpg" alt>
-         <figcaption>UTPL, Ingenieria Web </figcaption>
-      </figure>
-      
-   </figure>
-</section>
-</section>
+<fieldset>
+            <legend>Agregar nuevo</legend>
 
 
+
+
+		<div class="form-group">
+
+
+		    <label for="nombre_docente">Primer nombre </label>
+    	<input type="text" id="nombre_docente" name="nombre_docente" placeholder="nombre_docente">
+
+
+
+		</div>
+
+
+		<div class="form-group">
+
+
+		    <label for="nombre2_docente"> Segundo nombre </label>
+    	<input type="text" id="nombre2_docente" name="nombre2_docente" placeholder="nombre2_docente">
+
+
+
+		</div>
+
+		<div class="form-group">
+
+
+		    <label for="apellido_docente">Apellido paterno</label>
+    	<input type="text" id="apellido_docente" name="apellido_docente" placeholder="apellido_docente">
+
+
+
+		</div>
+
+
+
+		<div class="form-group">
+
+
+		    <label for="apellido2_docente">Apellido materno</label>
+    	<input type="text" id="apellido2_docente" name="apellido2_docente" placeholder="apellido2_docente">
+
+
+
+		</div>
+
+
+
+
+		<div class="form-group">
+
+
+		    <label for="cedula_docente">Cedula</label>
+   	 	<input type="text" id="cedula_docente" name="cedula_docente" placeholder="cedula_docente">
+
+
+
+		</div>
+
+
+
+
+		<div class="form-group">
+
+
+		    <label for="telefono_docente">Telefono</label>
+   	 	 	<input type="text" id="telefono_docente" name="telefono_docente" placeholder="telefono_docente">
+
+
+		</div>
+
+
+
+		<div class="form-group">
+
+
+		    <label for="correo_docente">Correo</label>
+   	 	 	 	<input type="text" id="correo_docente" name="correo_docente" placeholder="correo_docente">
+
+
+
+		</div>
+
+
+<div class="form-group">
+
+
+		    <label for="pass">Pass</label>
+   	 	 	 	 	<input type="text" id="pass" name="pass" placeholder="pass">
+
+
+
+		</div>
+
+
+
+
+		<div class="form-group">
+		    <label for="titulo">Titulo</label>
+   	 	 	 	 	<input type="text" id="titulo" name="titulo" placeholder="titulo">
+
+		</div>
+
+
+
+
+
+
+
+		
+
+
+		</fieldset>
+
+
+    
+  	  <button id="ag">Agregar</button>
+
+ 	 </form>
+					
+
+
+
+
+<hr id="hrdos" color="#000" style="margin-top: 1em;" size=1  ">
+
+			
+
+				<?php  
+			$sql2="select * from docente";
+			$result=mysql_query($sql2) or die ("error de id max");
+						
+			?>
+					<table id="customers">
+  <tr>
+    <th class="th">nombre_docente </th>
+    <th class="th">nombre2_docente</th>
+    <th class="th">apellido_docente</th>
+    <th class="th">apellido2_docente</th>
+    <th class="th">cedula_docente</th>
+    
+    <th class="th">correo_docente</th>
+    <th class="th">Pass</th>
+    
+    <th class="crud">Delete	</th>
+    <th class="crud">Update	</th>
+  </tr>
+
+  <?php
+  while ($line=mysql_fetch_array($result)) {?>
+				<tr >
+				
+				<td><?php echo $line[1] ?></td>
+				<td><?php echo $line[2] ?></td>
+				<td><?php echo $line[3] ?></td>
+				<td><?php echo $line[4] ?></td>
+				<td><?php echo $line[5] ?></td>
+				
+				<td><?php echo $line[7] ?></td>
+				<td><?php echo $line[8] ?></td>
+				
+				
+
+				<?php 
+
+			 $a=$line[0];
+				 ?>
+				
+				<td> <a href='aldelete.php?id=<?php echo $line[0] ?>'>Eliminar</a></td>
+				<td> <a href=  'modDocente.php?id=<?php echo  $a ?>' >Modificar</a></td>
+
+				</tr>
+				<?php } ?>
+
+ 
+</table>
+
+				</section></section>
 <footer>
   <div class="centered clearfix">
     <div class="footer-logo">
@@ -186,14 +358,13 @@
     </div>
   </div>
   <div class="bottom-bar">
-      All Rights Reserved © 2018 | <a href="">Privacy Policy</a> | <a href="">Terms of Service</a>
+      All Rights Reserved © 2016 | <a href="">Privacy Policy</a> | <a href="">Terms of Service</a>
   </div>
 </footer>
 
-
-
-</section>
-
-
 </body>
 </html>
+
+
+
+
