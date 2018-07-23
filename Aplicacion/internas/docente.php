@@ -23,7 +23,7 @@
 <section id="cuerpo">
 	
 <nav class="topnav" id="myTopnav">
-  <a href="../index.html" class="active">Home</a>
+  <a href="../index.html" class="active">Docentes</a>
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -109,27 +109,7 @@
 <section id="sld">
 
 
-<section id="captioned-gallery">
-   <figure class="slider">
-      <figure>
-         <img src="img/ciego.jpg" alt>
-         <figcaption>Evaluaciones a no Videntes, Accesibilidad</figcaption>
-      </figure>
-      <figure>
-         <img src="img/estudio.jpeg" alt>
-         <figcaption>La discapacidad visual no es un obstaculo</figcaption>
-      </figure>
-      <figure>
-         <img src="img/docente.jpg" alt>
-         <figcaption>Educacion accesible</figcaption>
-      </figure>
-      <figure> 
-         <img src="img/ciego.jpg" alt>
-         <figcaption>UTPL, Ingenieria Web </figcaption>
-      </figure>
-      
-   </figure>
-</section>
+
 </section>
 
 

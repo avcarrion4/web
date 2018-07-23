@@ -1,7 +1,8 @@
 <?php
-  include("/dll/config.php");
-  include("/dll/mysql.php");
+  include("../dll/config.php");
+  include("../dll/mysql.php");
   extract($_POST);
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,9 @@
   	<label>PREGUNTA 1:</label>
   	<select name="selector" id="selector">
   		<option value="0">Seleccione</option>
+      <?php 
+      
+      ?>
   		<option value="1">1</option>
   		<option value="2">2</option>
   		<option value="3">3</option>

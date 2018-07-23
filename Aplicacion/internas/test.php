@@ -15,9 +15,18 @@
           echo "<script> alert('Ya ha realizado la prueba')</script>";
           echo "<script>location.href='acceso_test.php'</script>";
         }else{
-          session_start();
-          $_SESSION["cedula_estudiante"] = $cedula;
-          $_SESSION["codigo"] = $codigo;
+          if ($pregunta['id_discapacidad']==1) {
+            session_start();
+            $_SESSION["cedula_estudiante"] = $cedula;
+            $_SESSION["codigo"] = $codigo;
+            echo "<script>location.href='unido.php'</script>";
+          } else {
+            session_start();
+            $_SESSION["cedula_estudiante"] = $cedula;
+            $_SESSION["codigo"] = $codigo;
+          }
+          
+          
         }        
         //echo "$pregunta[nombre_alumno]";
       }else{
