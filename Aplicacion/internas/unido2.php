@@ -23,7 +23,8 @@
     $array_preguntas[$cont]=$aux2;
     $cont++;
   }
-  
+  $aux3=$array_preguntas[1];
+      echo $aux3[0].";".$aux3[1];
 
   /*$arrlength=count($array_preguntas);
   for($x = 1; $x <= $arrlength; $x++) {
@@ -46,7 +47,20 @@
 <div id="page-wrapper">
   <h1>PRUEBA</h1>  
   <p id="msg"></p>
-  
+  <SECTION>
+  	<label>PREGUNTA 1:</label>
+  	<select name="selector" id="selector">
+  		<option value="0">Seleccione</option>
+      <?php for ($i=1; $i < 11; $i++) { 
+              ?><option value="<?php echo $i; ?>"><?php echo $i; ?></option><?php
+            }
+      ?>  		
+  	</select>
+  	<?php echo $_REQUEST['selector']; ?>
+    <div>
+    	<textarea type="text" name="speech-msg" id="texto" value="" rows="10" cols="80" x-webkit-speech><?php $aux3=$array_preguntas[1]; echo "$aux3[0]"; ?></textarea>	
+    </div>
+  </SECTION>
   <section>
     <div class="option">
       <label for="voice">Voice</label>
@@ -68,21 +82,7 @@
     </div>
     <button id="reproducir">Reproducir</button>  
   </section>
-	<SECTION>
-  <?php 
-    $arrlength=count($array_preguntas);
-    for($x = 1; $x <= $arrlength; $x++) {
-      $aux3=$array_preguntas[$x];
-      echo $aux3[0].";".$aux3[1].";".$aux3[2].";".$aux3[3];
-      echo "<br>";
-    }
-  ?>
-
-    <label>PREGUNTA :</label>
-    <div>
-      <textarea type="text" name="speech-msg" id="texto" value="" rows="10" cols="80" x-webkit-speech><?php $aux3=$array_preguntas[1]; echo "$aux3[0]"; ?></textarea> 
-    </div>
-  </SECTION>
+	
 
 	
 	<h1 class="center" id="headline">Respuesta</h1>
@@ -107,73 +107,28 @@
 
 </div>
 
+  <script type="text/javascript" src="../js/js2.js"></script>
+  <?php  $aux3=$array_preguntas[1]?>
   <script type="text/javascript">
-
-
-    // Get the 'speak' button
-    var button = document.getElementById('reproducir');
-
-    // Get the text input element.
-    var speechMsgInput = document.getElementById('texto');
-
-    // Get the voice select element.
-    var voiceSelect = document.getElementById('voice');
-    //var voiceSelect = document.getElementById('voice');
-
-    // Get the attribute controls.
-    var volumeInput = document.getElementById('volume');
-    var rateInput = document.getElementById('rate');
-    var pitchInput = document.getElementById('pitch');
-
-    /*
-     * Check for browser support
-     */
-
-    var supportMsg = document.getElementById('msg');
-
-    if ('speechSynthesis' in window) {
-      supportMsg.innerHTML = 'Su buscador soporta speech synthesis.';
-    } else {
-      supportMsg.innerHTML = 'Lo sentimos su navegador no soporta speech synthesis.<br>Prueba esto en <a href="https://www.google.co.uk/intl/en/chrome/browser/canary.html">Chrome Canary</a>.';
-      supportMsg.classList.add('no soportado');
-    }
-
-    // Create a new utterance for the specified text and add it to
-    // the queue.
-    function speak(text) {
-      // Create a new instance of SpeechSynthesisUtterance.
-      var msg = new SpeechSynthesisUtterance();
+    $('#selector').change(function(){
       
-      // Set the text.
-      msg.text = text;
-      
-      // Set the attributes.
-      msg.volume = parseFloat(volumeInput.value);
-      msg.rate = parseFloat(rateInput.value);
-      msg.pitch = parseFloat(pitchInput.value);
-      
-      // If a voice has been selected, find the voice and set the
-      // utterance instance's voice attribute.
-      if (voiceSelect.value) {
-        msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == voiceSelect.value; })[0];
+      var value=$(this).val();
+      switch (value) {
+        case '0':
+        break;
+        case '1':
+        var arreglo="<?php echo $aux3[0] ?>";
+          document.getElementById("texto").value=arreglo;
+        break;
+        case '2':
+          document.getElementById("texto").value="Identifique cual de las siguientes expresiones es una proposición:\na)¡Socorro!\nb)x + 1 = 3\nc)Juan José Flores fue el segundo presidente del ecuador.";
+        break;
+        case '3':
+          document.getElementById("texto").value="¿Por qué se origino la crisis del Ecuador?";
+        break;
+
       }
-      
-      // Queue this utterance.
-      window.speechSynthesis.speak(msg);
-    }
-
-
-    // Set up an event listener for when the 'speak' button is clicked.
-    function accion(){
-      if (speechMsgInput.value.length > 0) {
-        speak(speechMsgInput.value);
-      }
-    }
-    
-
-    
+    })
   </script>
-  
-  
 </body>
 </html>
