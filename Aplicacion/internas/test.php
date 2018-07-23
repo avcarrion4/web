@@ -32,7 +32,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Test</title>
   
@@ -43,11 +43,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
   </script>
+  
 </head>
 <body>
   
+  
   <main>
     <h2>PRUEBA</h2>
+    
       <form method="post" action="calificacion.php">
         <div class="form-group">
             <label for="cedula">Cedula</label>
@@ -57,31 +60,43 @@
             <label for="codigo">Codigo</label>
             <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
         </div>
-        <div id="page-wrapper">
         <div class="form-group">
             <?php 
-              
+                
+                $array_preguntas;
+                $cont=0;                
                 $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];           
                 $preguntas=mysql_query($query) or die('Error de sql');
                 while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
+                  $aux="";
                   ?>
                   <div class="form-group">
-                    <br><label for="pregunta"><?php echo "$pregunta[titulo_pregunta]"; ?></label>
+                    <br><label for="pregunta"><?php $aux=$aux."$pregunta[titulo_pregunta]"; echo "$pregunta[titulo_pregunta]"; ?></label>
                   </div><?php 
                   
                   $query="Select * from respuesta where id_pregunta="."$pregunta[id_pregunta]";
                   $respuestas=mysql_query($query) or die('Error de sql');
                   while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
+                    $aux=$aux."\n"."$respuesta[opcion_respuesta]";
                     ?><input type="checkbox" class="form-control" name="resp[]";  value="<?php echo $respuesta['id_respuesta'];?>"> <?php echo "$respuesta[opcion_respuesta]";?><br><?php
                       
                     }
-                }            
+                    $array_preguntas[$cont]=$aux;
+                    $cont++;
+                    
+                }
+
+                for ($i=0; $i <10 ; $i++) { 
+                  echo $array_preguntas[$i];
+                  echo "<br>";
+                }
+                       
             ?>
         </div>
         <br><button>Guardar</button><br><br>
       </form>
   </main> 
- 
+
   <footer>Pie de pagina</footer>
 
 

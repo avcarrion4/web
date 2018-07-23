@@ -1,3 +1,9 @@
+<?php
+  include("/dll/config.php");
+  include("/dll/mysql.php");
+  extract($_POST);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,48 +25,35 @@
   		<option value="2">2</option>
   		<option value="3">3</option>
   	</select>
-  	<script type="text/javascript">
-    	$('#selector').change(function(){
-    		var value=$(this).val();
-    		switch (value) {
-    			case '0':
-    			break;
-    			case '1':
-    				document.getElementById("texto").value="¿A qué se debe la migración externa del Ecuador?";
-    			break;
-    			case '2':
-    				document.getElementById("texto").value="Identifique cual de las siguientes expresiones es una proposición:\na)¡Socorro!\nb)x + 1 = 3\nc)Juan José Flores fue el segundo presidente del ecuador.";
-    			break;
-    			case '3':
-    				document.getElementById("texto").value="¿Por qué se origino la crisis del Ecuador?";
-    			break;
-
-    		}
-    	})
-    </script>
+  	
     <div>
     	<textarea type="text" name="speech-msg" id="texto" value="" rows="10" cols="80" x-webkit-speech></textarea>	
     </div>
-	<div class="option">
-		<label for="voice">Voice</label>
-		<select name="voice" id="voice" disabled>
-    <option value="Google español">Google español</option>  
-    </select>
-	</div>
-	<div class="option">
-		<label for="volume">Volume</label>
-		<input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1" disabled>
-	</div>
-	<div class="option">
-		<label for="rate">Rate</label>
-		<input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1" disabled>
-	</div>
-	<div class="option">
-		<label for="pitch">Pitch</label>
-		<input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1" disabled>
-	</div>
+  </SECTION>
+  <section>
+    <div class="option">
+      <label for="voice">Voice</label>
+      <select name="voice" id="voice" disabled>
+      <option value="Google español">Google español</option>  
+      </select>
+    </div>
+    <div class="option">
+      <label for="volume">Volume</label>
+      <input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1" disabled>
+    </div>
+    <div class="option">
+      <label for="rate">Rate</label>
+      <input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1" disabled>
+    </div>
+    <div class="option">
+      <label for="pitch">Pitch</label>
+      <input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1" disabled>
+    </div>
+    <button id="reproducir">Reproducir</button>  
+  </section>
+	
 
-	<button id="reproducir">Reproducir</button>
+	
 	<h1 class="center" id="headline">Respuesta</h1>
     <form>
       <input type="button" id="btn" value="start"/>
@@ -83,6 +76,25 @@
 
 </div>
 
-<script type="text/javascript" src="js/js2.js"></script>
+  <script type="text/javascript" src="js/js2.js"></script>
+  <script type="text/javascript">
+    $('#selector').change(function(){
+      var value=$(this).val();
+      switch (value) {
+        case '0':
+        break;
+        case '1':
+          document.getElementById("texto").value="¿A qué se debe la migración externa del Ecuador?";
+        break;
+        case '2':
+          document.getElementById("texto").value="Identifique cual de las siguientes expresiones es una proposición:\na)¡Socorro!\nb)x + 1 = 3\nc)Juan José Flores fue el segundo presidente del ecuador.";
+        break;
+        case '3':
+          document.getElementById("texto").value="¿Por qué se origino la crisis del Ecuador?";
+        break;
+
+      }
+    })
+  </script>
 </body>
 </html>
