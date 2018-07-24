@@ -38,7 +38,7 @@ $aa=$_REQUEST['id'];
 <nav class="topnav" id="myTopnav">
   <a href="#home" class="active">Alumnos</a>
   <a href="#news">Docente</a>
-  <a href="#contact">Materias</a>
+  <a href="materia.php">Materias</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -186,7 +186,7 @@ $sql2="select * from alumno where id_alumno=$aa";
 
 
 		    <label for="apellido_alumno">Apellido paterno</label>
-    	<input type="text" id="apellido_alumno" name="apellido_alumno"value="<?php
+    	<input type="text" id="apellido_alumno" name="apellido_alumno" value="<?php
 
 
 $sql2="select * from alumno where id_alumno=$aa"; 

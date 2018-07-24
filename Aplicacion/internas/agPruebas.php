@@ -36,9 +36,8 @@ include("../dll/config.php");
 <hr id="hruno" color="yellow" size=1  ">
 <nav class="topnav" id="myTopnav">
   <a href="panel.php" >Alumnos</a>
-  <a href="doc.php" class="active">Docente</a>
-  <a href="materia.php
-  ">Materias</a>
+  <a href="doc.php" >Docente</a>
+  <a class="active" href="materia.php">Materias</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -116,120 +115,116 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN DOCENTE</h2>
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ASIGNAR MATERIA</h2>
 <section id="cuerpoform">
 	<section id="info">
 
 				<section class="add">
 
-					<form id="fnuevo" action="insrtdoc.php" method="post">
-
+				
 
 <fieldset>
-            <legend>Agregar nuevo</legend>
+            <legend>Docentes</legend>
 
 
 
+<?php  
+			$sql2="select * from docente_paralelo";
+			$result=mysql_query($sql2) or die ("error de id max");
+			$cont=0;
+			while ( $line=mysql_fetch_array($result)) {
+				$docets[$cont]=$line[1];
+				$parl[$cont]=$line[2];
+			
+				$cont=$cont+1;
+			}
 
-		<div class="form-group">
 
+			
+						
+			?>
 
-		    <label for="nombre_docente">Primer nombre </label>
-    	<input type="text" id="nombre_docente" name="nombre_docente" placeholder="nombre_docente">
 
 
+					<table id="customers">
+  <tr>
+    <th class="th">nombre_docente </th>
+  
+    <th class="th">Paralelo</th>
+    <th class="th">Materia</th>
+   
+    
+    <th class="crud">Asignar Materia	</th>
+  </tr>
+	
+  <?php
 
-		</div>
+  			for ($i=0; $i < count($docets); $i++) { 
+  				$sql2="select id_docente,nombre_docente from docente where id_docente='$docets[$i]'";
+			$results=mysql_query($sql2) or die ("error de id max");
 
+			$sql3="select nombre_paralelo from paralelo where id_paralelo='$parl[$i]'";
+			$resultss=mysql_query($sql3) or die ("error de id max");
 
-		<div class="form-group">
+			$sql="select id_materia from paralelo where id_paralelo='$parl[$i]'";
+			$r=mysql_query($sql) or die ("error de id max");
 
 
-		    <label for="nombre2_docente"> Segundo nombre </label>
-    	<input type="text" id="nombre2_docente" name="nombre2_docente" placeholder="nombre2_docente">
+  			
+			
+		
+$ct=0;
+$var1=0;
+  while ($lines=mysql_fetch_array($results)) {
+  while ($liness=mysql_fetch_array($resultss)) {
+  while ($linesss=mysql_fetch_array($r)) {
+	$var[$ct]=$linesss[0];
+$ct=$ct+1;
 
 
 
-		</div>
+				
+				$sqll="select nombre_materia from materia where id_materia='$var[$var1]'";
+				$var1=$var1+1;
+				$rr=mysql_query($sqll) or die ("error de id max");
 
-		<div class="form-group">
+				    $linessss=mysql_fetch_array($rr)?>
+				<tr >
+				
+				<td><?php echo $lines[1] ?></td>
 
+				<td><?php echo $liness[0] ?></td>
 
-		    <label for="apellido_docente">Apellido paterno</label>
-    	<input type="text" id="apellido_docente" name="apellido_docente" placeholder="apellido_docente">
+				<td><?php echo $linessss[0] ?></td>
+					
+				
 
+				<?php 
 
+			 $a=$line[0];
+				 ?>
+				
+				<td> <a href='asignaP.php?id=<?php echo $lines[0] ?>'>Asignar materia</a></td>
+				
 
-		</div>
+				</tr>
 
 
+				<?php
 
-		<div class="form-group">
+  
 
+				}
 
-		    <label for="apellido2_docente">Apellido materno</label>
-    	<input type="text" id="apellido2_docente" name="apellido2_docente" placeholder="apellido2_docente">
 
 
 
-		</div>
+				}}} ?>
 
+ 
+</table>
+		
 
-
-
-		<div class="form-group">
-
-
-		    <label for="cedula_docente">Cedula</label>
-   	 	<input type="text" id="cedula_docente" name="cedula_docente" placeholder="cedula_docente">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-
-
-		    <label for="telefono_docente">Telefono</label>
-   	 	 	<input type="text" id="telefono_docente" name="telefono_docente" placeholder="telefono_docente">
-
-
-		</div>
-
-
-
-		<div class="form-group">
-
-
-		    <label for="correo_docente">Correo</label>
-   	 	 	 	<input type="text" id="correo_docente" name="correo_docente" placeholder="correo_docente">
-
-
-
-		</div>
-
-
-<div class="form-group">
-
-
-		    <label for="pass">Pass</label>
-   	 	 	 	 	<input type="text" id="pass" name="pass" placeholder="pass">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-		    <label for="titulo">Titulo</label>
-   	 	 	 	 	<input type="text" id="titulo" name="titulo" placeholder="titulo">
-
-		</div>
 
 
 
@@ -244,9 +239,6 @@ function myFunction() {
 
 
     
-  	  <button id="ag">Agregar</button>
-
- 	 </form>
 					
 
 
@@ -256,54 +248,7 @@ function myFunction() {
 
 			
 
-				<?php  
-			$sql2="select * from docente";
-			$result=mysql_query($sql2) or die ("error de id max");
-						
-			?>
-					<table id="customers">
-  <tr>
-    <th class="th">nombre_docente </th>
-    <th class="th">nombre2_docente</th>
-    <th class="th">apellido_docente</th>
-    <th class="th">apellido2_docente</th>
-    <th class="th">cedula_docente</th>
-    
-    <th class="th">correo_docente</th>
-    <th class="th">Pass</th>
-    
-    <th class="crud">Delete	</th>
-    <th class="crud">Update	</th>
-  </tr>
-
-  <?php
-  while ($line=mysql_fetch_array($result)) {?>
-				<tr >
 				
-				<td><?php echo $line[1] ?></td>
-				<td><?php echo $line[2] ?></td>
-				<td><?php echo $line[3] ?></td>
-				<td><?php echo $line[4] ?></td>
-				<td><?php echo $line[5] ?></td>
-				
-				<td><?php echo $line[7] ?></td>
-				<td><?php echo $line[8] ?></td>
-				
-				
-
-				<?php 
-
-			 $a=$line[0];
-				 ?>
-				
-				<td> <a href='aldelete.php?id=<?php echo $line[0] ?>'>Eliminar</a></td>
-				<td> <a href=  'docente.php?id=<?php echo  $a ?>' >Modificar</a></td>
-
-				</tr>
-				<?php } ?>
-
- 
-</table>
 
 				</section></section>
 <footer>

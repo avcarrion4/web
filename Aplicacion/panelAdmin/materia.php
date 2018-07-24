@@ -36,9 +36,8 @@ include("../dll/config.php");
 <hr id="hruno" color="yellow" size=1  ">
 <nav class="topnav" id="myTopnav">
   <a href="panel.php" >Alumnos</a>
-  <a href="doc.php" class="active">Docente</a>
-  <a href="materia.php
-  ">Materias</a>
+  <a href="doc.php" >Docente</a>
+  <a class="active" href="materia.php">Materias</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -116,13 +115,13 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN DOCENTE</h2>
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ADMIN MATERIA</h2>
 <section id="cuerpoform">
 	<section id="info">
 
 				<section class="add">
 
-					<form id="fnuevo" action="insrtdoc.php" method="post">
+					<form id="fnuevo" action="insertarMateria.php" method="post">
 
 
 <fieldset>
@@ -134,8 +133,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="nombre_docente">Primer nombre </label>
-    	<input type="text" id="nombre_docente" name="nombre_docente" placeholder="nombre_docente">
+		    <label for="nombre_materia">Nombre materia </label>
+    	<input type="text" id="nombre_materia" name="nombre_materia" placeholder="nombre_materia">
 
 
 
@@ -145,8 +144,8 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="nombre2_docente"> Segundo nombre </label>
-    	<input type="text" id="nombre2_docente" name="nombre2_docente" placeholder="nombre2_docente">
+		    <label for="ciclo"> Ciclo </label>
+    	<input type="text" id="ciclo" name="ciclo" placeholder="ciclo">
 
 
 
@@ -155,89 +154,31 @@ function myFunction() {
 		<div class="form-group">
 
 
-		    <label for="apellido_docente">Apellido paterno</label>
-    	<input type="text" id="apellido_docente" name="apellido_docente" placeholder="apellido_docente">
+		    <label for="titulacion">Titulacion</label>
+
+
+
+		    <select class="form-control" id="titulacion" name="titulacion" >
+
+		    <?php
+
+		    $query="select * from titulacion";
+		    $talleres=mysql_query($query) or die('error');
+
+		    while ($taller= mysql_fetch_array($talleres,MYSQLI_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $taller['id_titulacion']; ?>"> <?php  echo $taller['nombre_titulacion'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
 
 
 
 		</div>
-
-
-
-		<div class="form-group">
-
-
-		    <label for="apellido2_docente">Apellido materno</label>
-    	<input type="text" id="apellido2_docente" name="apellido2_docente" placeholder="apellido2_docente">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-
-
-		    <label for="cedula_docente">Cedula</label>
-   	 	<input type="text" id="cedula_docente" name="cedula_docente" placeholder="cedula_docente">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-
-
-		    <label for="telefono_docente">Telefono</label>
-   	 	 	<input type="text" id="telefono_docente" name="telefono_docente" placeholder="telefono_docente">
-
-
-		</div>
-
-
-
-		<div class="form-group">
-
-
-		    <label for="correo_docente">Correo</label>
-   	 	 	 	<input type="text" id="correo_docente" name="correo_docente" placeholder="correo_docente">
-
-
-
-		</div>
-
-
-<div class="form-group">
-
-
-		    <label for="pass">Pass</label>
-   	 	 	 	 	<input type="text" id="pass" name="pass" placeholder="pass">
-
-
-
-		</div>
-
-
-
-
-		<div class="form-group">
-		    <label for="titulo">Titulo</label>
-   	 	 	 	 	<input type="text" id="titulo" name="titulo" placeholder="titulo">
-
-		</div>
-
-
-
-
-
-
-
-		
 
 
 		</fieldset>
@@ -257,23 +198,18 @@ function myFunction() {
 			
 
 				<?php  
-			$sql2="select * from docente";
+			$sql2="select * from materia";
 			$result=mysql_query($sql2) or die ("error de id max");
 						
 			?>
 					<table id="customers">
   <tr>
-    <th class="th">nombre_docente </th>
-    <th class="th">nombre2_docente</th>
-    <th class="th">apellido_docente</th>
-    <th class="th">apellido2_docente</th>
-    <th class="th">cedula_docente</th>
+    <th class="th">nombre_materia </th>
+    <th class="th">ciclo</th>
+    <th class="th">id_titulacion</th>
+    <th class="th">Eliminar</th>
+    <th class="th">Modificar</th>
     
-    <th class="th">correo_docente</th>
-    <th class="th">Pass</th>
-    
-    <th class="crud">Delete	</th>
-    <th class="crud">Update	</th>
   </tr>
 
   <?php
@@ -283,11 +219,6 @@ function myFunction() {
 				<td><?php echo $line[1] ?></td>
 				<td><?php echo $line[2] ?></td>
 				<td><?php echo $line[3] ?></td>
-				<td><?php echo $line[4] ?></td>
-				<td><?php echo $line[5] ?></td>
-				
-				<td><?php echo $line[7] ?></td>
-				<td><?php echo $line[8] ?></td>
 				
 				
 
@@ -297,7 +228,7 @@ function myFunction() {
 				 ?>
 				
 				<td> <a href='aldelete.php?id=<?php echo $line[0] ?>'>Eliminar</a></td>
-				<td> <a href=  'docente.php?id=<?php echo  $a ?>' >Modificar</a></td>
+				<td> <a href=  'updateMateria.php?id=<?php echo  $a ?>' >Modificar</a></td>
 
 				</tr>
 				<?php } ?>
