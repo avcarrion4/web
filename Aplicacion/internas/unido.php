@@ -54,16 +54,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>Texto a voz</title>
-	<link rel="stylesheet" type="text/css" href="../css/css.css">
+	<link rel="stylesheet" type="text/css" href="../css/ciegos.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 <div id="page-wrapper">
-  <h1>PRUEBA</h1>  
-  <p id="msg"></p>
+  <h1 style=" color: #FFFFFF; background-color: #00457E">Evaluacion</h1>  
   
-  <section>
+  
+  <section style="display: none;">
     <div class="option">
       <label for="voice">Voice</label>
       <select name="voice" id="voice" disabled>
@@ -84,25 +84,38 @@
     </div>
     
   </section>
-	<SECTION>
-    <form method="post" >
-      <div class="form-group">
-          <label for="cedula">Cedula</label>
+	<SECTION id ="sss">
+    <form method="post"  alt="formulario de examen">
+
+<fieldset style="padding: 3em;">
+            <legend>Datos de la evaluacion</legend>
+
+      <div class="form-group" style="padding-top: 1em;"  >
+          <label for="cedula"  >Cedula</label>
           <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
       </div>
       <div class="form-group">
           <label for="codigo">Codigo</label>
           <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
-      </div>
+      </div></fieldset>
+
+
+      <fieldset style="padding: 3em;">
+            <legend>Preguntas de la evaluacion</legend>
+
+
       <?php 
         $arrlength=count($array_preguntas);
         for($x = 1; $x <= $arrlength; $x++) {
           $aux3=$array_preguntas[$x];
           ?>
-          <label>PREGUNTA <?php echo "$x"; ?> :</label>
+          <label class="preguntas">PREGUNTA <?php echo "$x"; ?> :</label><br>
+
+          <fieldset style="padding: 3em;">
+            <legend>Ingrese su respuesta</legend>
           <textarea type="text" name="speech-msg" id="texto<?php echo $x?>" value="" rows="10" cols="80" x-webkit-speech><?php echo "$aux3[0]"; ?></textarea>
           
-          <img onclick="accion(<?php echo $x?>);" src="../img/play-button.png">
+          <img alt="imagen para reproducir audio de las preguntas de las prubas" onclick="accion(<?php echo $x?>);" src="../img/play-button.png">
           <div id="resp">
             <textarea rows="3" cols="80" id="interimResult<?php echo $x?>">
               
@@ -110,15 +123,18 @@
             <textarea rows="3" cols="80" id="finalResult<?php echo $x?>" name="finalResult<?php echo $x?>">
               
             </textarea>
-          </div>
-          <input type="button" onclick="accion2(<?php echo $x?>);" id="btn<?php echo $x?>" value="start"/>
+          </div></fieldset>
+
+
+
+          <input style="margin-bottom: 1em; " class="bb" type="button" onclick="accion2(<?php echo $x?>);" id="btn<?php echo $x?>" value="start"/>
           <?php 
           
           echo "<br>";
         }
-      ?>
-      <input type="button" onclick="validar(<?php echo $cont?>);" id="btn<?php echo $x?>" value="Validar"/>
-      <br><button>Guardar</button><br><br>
+      ?></fieldset>
+      <input style="margin-bottom: 1em; background-color: blue" class="bb" type="button" onclick="validar(<?php echo $cont?>);" id="btn<?php echo $x?>" value="Validar"/>
+      <br><button   class="bb">Guardar</button><br><br>
     </form>
     
   </SECTION>

@@ -101,18 +101,14 @@
                     
                 }
 
-                for ($i=0; $i <10 ; $i++) { 
-                  echo $array_preguntas[$i];
-                  echo "<br>";
-                }
-                       
+                  
             ?>
         </div>
 
 
 
         </fieldset>
-        <br><button>Guardar</button><br><br>
+        <br><button style="color: #FFFFFF;">Guardar</button><br><br>
       </form>
   </main> 
 

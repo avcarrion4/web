@@ -1,0 +1,54 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html, body{
+	background: #DAD8BA;
+	height: 100%;
+	font-family: arial;
+}
+
+h1{
+
+	text-align: center;
+	padding-top: 0.5em;
+	padding-bottom: 1em;
+}
+
+#sss{
+
+	width: 75%;
+	margin: 0 auto;
+}
+.preguntas{
+	
+	padding: 2em;
+	float: left;
+	width: 100%;
+
+}
+
+.form-group{
+	padding-bottom: 1em;
+}
+textarea{
+	padding-top: 1em;
+	
+	
+	width: 100%;
+}
+
+img{
+	float: left;
+
+}
+
+
+.bb{
+	
+	background: #5D0000;
+	color: #fff;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	border: 0px solid #fff;
+}
