@@ -15,21 +15,27 @@
     $query="Select * from respuesta where id_pregunta="."$pregunta[id_pregunta]";
     $respuestas=mysql_query($query) or die('Error de sql');
     $cont2=1;
+    $a;
+    $b;
+    $c;
     while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
       if ($cont2==1) {
-        $aux=$aux."\nA) "."$respuesta[opcion_respuesta]";        
+        $aux=$aux."\nA) "."$respuesta[opcion_respuesta]";
+        $a=$respuesta['verificacion'];
       }
       if ($cont2==2) {
         $aux=$aux."\nB) "."$respuesta[opcion_respuesta]";
+        $b=$respuesta['verificacion'];
       }
       if ($cont2==3) {
+        $c=$respuesta['verificacion'];
         $aux=$aux."\nC) "."$respuesta[opcion_respuesta]";
       }
       
       $cont2++;
 
     }
-    $aux2=array($aux, 0, 0,0);
+    $aux2=array($aux, $a, $b,$c);
     $array_preguntas[$cont]=$aux2;
     $cont++;
   }
@@ -79,30 +85,42 @@
     
   </section>
 	<SECTION>
-    <?php 
-      $arrlength=count($array_preguntas);
-      for($x = 1; $x <= $arrlength; $x++) {
-        $aux3=$array_preguntas[$x];
-        ?>
-        <label>PREGUNTA <?php echo "$x"; ?> :</label>
-        <textarea type="text" name="speech-msg" id="texto<?php echo $x?>" value="" rows="10" cols="80" x-webkit-speech><?php echo "$aux3[0]"; ?></textarea>
-        
-        <img onclick="accion(<?php echo $x?>);" src="../img/play-button.png">
-        <div id="resp">
-          <textarea rows="3" cols="80" id="interimResult<?php echo $x?>">
-            
-          </textarea>
-          <textarea rows="3" cols="80" id="finalResult<?php echo $x?>">
-            
-          </textarea>
-        </div>
-        <input type="button" onclick="accion2(<?php echo $x?>);" id="btn<?php echo $x?>" value="start"/>
-        <?php 
-        
-        echo "<br>";
-      }
-    ?>
-    <input type="button" onclick="validar(<?php echo $cont?>);" id="btn<?php echo $x?>" value="Guardar"/>
+    <form method="post" >
+      <div class="form-group">
+          <label for="cedula">Cedula</label>
+          <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
+      </div>
+      <div class="form-group">
+          <label for="codigo">Codigo</label>
+          <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
+      </div>
+      <?php 
+        $arrlength=count($array_preguntas);
+        for($x = 1; $x <= $arrlength; $x++) {
+          $aux3=$array_preguntas[$x];
+          ?>
+          <label>PREGUNTA <?php echo "$x"; ?> :</label>
+          <textarea type="text" name="speech-msg" id="texto<?php echo $x?>" value="" rows="10" cols="80" x-webkit-speech><?php echo "$aux3[0]"; ?></textarea>
+          
+          <img onclick="accion(<?php echo $x?>);" src="../img/play-button.png">
+          <div id="resp">
+            <textarea rows="3" cols="80" id="interimResult<?php echo $x?>">
+              
+            </textarea>
+            <textarea rows="3" cols="80" id="finalResult<?php echo $x?>" name="finalResult<?php echo $x?>">
+              
+            </textarea>
+          </div>
+          <input type="button" onclick="accion2(<?php echo $x?>);" id="btn<?php echo $x?>" value="start"/>
+          <?php 
+          
+          echo "<br>";
+        }
+      ?>
+      <input type="button" onclick="validar(<?php echo $cont?>);" id="btn<?php echo $x?>" value="Validar"/>
+      <br><button>Guardar</button><br><br>
+    </form>
+    
   </SECTION>
 
 	 
@@ -295,7 +313,7 @@
     function accion(x){
       var aux1="texto"
       aux1=aux1.concat(x);
-      alert(aux1);
+      //alert(aux1);
       var speechMsgInput = document.getElementById(aux1);
 
       if (speechMsgInput.value.length > 0) {
@@ -303,15 +321,59 @@
       }
     }
   </script>
+  <?php  
+
+  ?>
 
   <script type="text/javascript">
     function validar(cont){
-      var aux1="finalResult";
+      
       for (var i = 1; i < cont; i++) {
+        var aux1="finalResult";  
+        aux1=aux1.concat(i);
+        var texta = document.getElementById(aux1);
         
-        aux1=aux1.concat(cont);
-        alert(aux1);  
+        if (texta.value.trim().length<1 ){
+          var sal="Respuesta ";
+          sal=sal.concat(i);
+          sal=sal.concat(" Esta Vacia");
+          alert(sal);
+          break;
+        }else{
+          
+          if (i>9) {
+            alert("Respuestas Validadas");
+          }
+        }
+
+
       }
+      /*for (var i = 1; i < cont; i++) {
+        var aux1="finalResult";  
+        aux1=aux1.concat(i);
+        var texta = document.getElementById(aux1);
+        
+        if ((texta.value.trim()=="A")||(texta.value.trim()=="letra a")||(texta.value.trim()=="letra A")) {
+
+          alert("<?php 
+             ?>");
+        }
+        if ((texta.value.trim()=="B")||(texta.value.trim()=="letra b")||(texta.value.trim()=="letra B")) {
+          
+          alert("<?php echo "Siiiiiiiii BBB"; ?>");
+        }
+        if ((texta.value.trim()=="C")||(texta.value=="letra a")) {
+          
+          alert("<?php echo "Siiiiiiiii CCCC"; ?>");
+        }
+        //alert(texta.value);
+        if (i>9) {
+          alert("Respuestas Validadas");
+        }
+      
+
+
+      }*/
       
 
       //var texta = document.getElementById();
@@ -319,7 +381,7 @@
 
     }
   </script>
-  <script type="text/javascript" src="../js/speech-recognition.js"></script>  
+  
   
   
 </body>
