@@ -80,7 +80,8 @@
                 
                 $array_preguntas;
                 $cont=0;                
-                $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];           
+                $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];
+                echo "$query";           
                 $preguntas=mysql_query($query) or die('Error de sql');
                 while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
                   $aux="";
