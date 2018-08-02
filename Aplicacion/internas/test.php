@@ -22,10 +22,12 @@
             $_SESSION["codigo"] = $codigo;
             echo "<script>location.href='unido.php'</script>";
           } else {
+            
             session_start();
             $_SESSION["cedula_estudiante"] = $cedula;
             $_SESSION["codigo"] = $codigo;
           }
+
           
           
         }        
