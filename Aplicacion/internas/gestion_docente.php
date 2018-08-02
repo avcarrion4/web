@@ -13,6 +13,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <head>	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Gestion Docente</title>
@@ -38,7 +39,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 </head>
 <body style="background-color: gray">
 <nav class="topnav" id="myTopnav">
-  <a href="../index.html" class="active">Cerrar sesion</a>
+  <a href="../index.html" class="active">Cerrarr sesion</a>
   
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -71,6 +72,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 						<option value="1">Activa</option>
 						<option value="2">Inactiva</option>
 					</select>
+					</div>
 				<br><button >Guardar</button><br><br>
 			</form>
 			</article>
@@ -130,7 +132,11 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 			</article>
 		</div>
 	</div>
+	
+
+
 </body>
+
 
 </html>
 

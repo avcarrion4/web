@@ -367,6 +367,49 @@ $sql2="select * from docente where id_docente=$aa";
 		</div>
 
 
+		<div class="form-group">
+		    <label for="id_a">Area</label>
+		    <select class="form-control" id="id_a" name="id_a" >
+
+		    <?php
+
+		    $query="select * from area ";
+		    $resp=mysql_query($query) or die('error');
+
+		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $r['id_area']; ?>"> <?php  echo $r['nombre_area'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
+		</div>
+
+		<div class="form-group">
+		    <label for="id_t">Titulacion</label>
+		    <select class="form-control" id="id_t" name="id_t" >
+		
+		    <?php
+		    
+		  
+		    $query="select * from titulacion ";
+		    $resp=mysql_query($query) or die('error');
+
+		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $r['id_titulacion']; ?>"> <?php  echo $r['nombre_titulacion'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
+		</div>
+
 
 
 
@@ -376,7 +419,7 @@ $sql2="select * from docente where id_docente=$aa";
 
 
 		</fieldset>
-<h1 ><?php echo $aa; ?></h1>
+
 
     
   	  <button id="ag" name="ide"  value="<?php  echo $aa; ?>" >Agregar</button>

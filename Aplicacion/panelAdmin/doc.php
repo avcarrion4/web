@@ -39,6 +39,7 @@ include("../dll/config.php");
   <a href="doc.php" class="active">Docente</a>
   <a href="materia.php
   ">Materias</a>
+  <a href="../internas/agPruebas.php">Pruebas</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -235,7 +236,48 @@ function myFunction() {
 
 
 
+		<div class="form-group">
+		    <label for="id_a">Area</label>
+		    <select class="form-control" id="id_a" name="id_a" >
 
+		    <?php
+
+		    $query="select * from area";
+		    $resp=mysql_query($query) or die('error');
+
+		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $r['id_area']; ?>"> <?php  echo $r['nombre_area'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
+		</div>
+
+		<div class="form-group">
+		    <label for="id_t">Titulacion</label>
+		    <select class="form-control" id="id_t" name="id_t" >
+		
+		    <?php
+		    
+		    echo $id_area;
+		    $query="select * from titulacion";
+		    $resp=mysql_query($query) or die('error');
+
+		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $r['id_titulacion']; ?>"> <?php  echo $r['nombre_titulacion'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
+		</div>
 
 		
 

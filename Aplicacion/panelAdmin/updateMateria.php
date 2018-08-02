@@ -182,32 +182,25 @@ $sql2="select * from materia where id_materia=$a";
 		</div>
 
 		<div class="form-group">
-
-
-		    <label for="titulacion">Titulacion</label>
-
-
-
-		    <select class="form-control" id="titulacion" name="titulacion" >
-
+		    <label for="id_t">Titulacion</label>
+		    <select class="form-control" id="id_t" name="id_t" >
+		
 		    <?php
+		    
+		  
+		    $query="select * from titulacion ";
+		    $resp=mysql_query($query) or die('error');
 
-		    $query="select * from materia where id_materia=$a";
-		    $talleres=mysql_query($query) or die('error');
-
-		    while ($taller= mysql_fetch_array($talleres,MYSQLI_ASSOC)) {
+		    while ($r= mysql_fetch_array($resp,MYSQL_ASSOC)) {
 
 
 			?>
-			<option value="<?php echo $taller['id_titulacion']; ?>"> <?php  echo $taller['id_titulacion'];  ?></option>
+			<option value="<?php echo $r['id_titulacion']; ?>"> <?php  echo $r['nombre_titulacion'];  ?></option>
 		<?php
 	}
 		?>
 		    
 			</select>
-
-
-
 		</div>
 
 
