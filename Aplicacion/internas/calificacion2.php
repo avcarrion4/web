@@ -376,14 +376,27 @@ for($x = 1; $x <= $arrlength; $x++) {
 <html>
 <head>
 	<title>Resultado</title>
+	<link rel="stylesheet" type="text/css" href="../css/estilosAdmin.css">
+	<link rel="stylesheet" type="text/css" href="../css/cssfooter.css">
+	<script type="text/javascript" src="../css/footer.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
+	<link rel="stylesheet" type="text/css" href="../css/cssSlide.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/header-fixed.css">
+	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/demo.css">
 </head>
-<body>
+<body><header style="float: left;
+	width: 100%;height: 9%;
+	background-color: #0C464B;margin-bottom: 2em; color: #FFFFFF;width: "><h1 style="text-align: center;">Respuestas guardadas</h1></header>
 <div class="form-group">
     <label for="cedula">Cedula</label>
     <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
 </div>
-<div class="form-group">
-    <label for="codigo">Codigo</label>
+<div class="form-group" style="margin-bottom: 2em;">
+    <label for="codigo" >Codigo</label>
     <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
 </div>
 <?php 
@@ -391,8 +404,17 @@ for($x = 1; $x <= $arrlength; $x++) {
 	$preguntas=mysql_query($query) or die('Error de sql');
 	$cont2=1;
 	while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
-		?><label for="cedula"><?php echo "Pregunta "."$cont2: "; ?></label>
-		<input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $pregunta['valor']; ?>" disabled>
+		?><label for="cedula" style="margin-top: 2em;"><?php echo "Pregunta "."$cont2: "; ?></label>
+		<input style="font-family: 'Roboto', sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  margin-top: 1em;
+  width: 15%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;" type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $pregunta['valor']; ?>" disabled>
 		<br>
 		<?php		
 		$cont2++;
@@ -402,7 +424,19 @@ for($x = 1; $x <= $arrlength; $x++) {
 	session_destroy();
 ?>
 	<form action="../index.html">
-		<button>Salir</button>	
+		<button style="margin-top: 2em; font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 7%;
+  border: 0;
+  margin-left: 2em;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;">Salir</button>	
 	</form>
 	
 
