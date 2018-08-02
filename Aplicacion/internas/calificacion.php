@@ -16,37 +16,6 @@ function verificacion_respuesta($resp_preg , $resp_bd){
 		
 		return false;
 	}
-	/*switch ($cont) {
-		case '0':
-		break;
-		case '1':
-			if ($resp_preg==$resp_bd) {
-				echo $resp_preg;
-				echo $resp_bd;
-				return true;
-			}else{
-				return false;
-			}
-		break;
-		case '2':
-			if ($resp_preg==$resp_bd) {
-				echo "$resp_preg";
-				echo "$resp_bd";
-				return true;
-			}else{
-				return false;
-			}
-		break;
-		case '3':
-			if ($resp_preg==$resp_bd) {
-				echo "$resp_preg";
-				echo "$resp_bd";
-				return true;
-			}else{
-				return false;
-			}
-		break;
-	}*/
 }
 function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
 	
@@ -81,16 +50,6 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	
 	for($x = 0; $x < $arrlength; $x++) {
 		if ($pregunta['id_respuesta']==$resp[$x]) {
-			/*echo $pregunta['id_respuesta']." 1";
-			echo "<br>";
-			echo "$resp[$x]"." 2";
-			echo "<br>";
-			
-			if ($pregunta['verificacion']==1) {
-				echo "Verdadero";
-			}else{
-				echo "Falso";
-			}*/
 
 			switch ($cont) {
 				case '0':
@@ -114,12 +73,6 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 			}
 			break;
 		}else{
-			/*echo $pregunta['id_respuesta']." 1";
-			echo "<br>";
-			echo "$resp[$x]"." 2";
-			echo "<br>";
-			echo "no iguales";
-			echo "<br>";*/
 			switch ($cont) {
 				case '0':
 				break;
@@ -136,8 +89,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 			}
 
 		}
-	    /*echo $resp[$x];
-	    echo "<br>";*/
+	    
 	}
 	if ($cont==3) {
 		
@@ -148,8 +100,6 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	}
 
 }
-	
-//echo "<script>location.href='../index.html'</script>";
 ?>
 
 <!DOCTYPE html>

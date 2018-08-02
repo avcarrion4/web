@@ -7,20 +7,29 @@ $ced=$_SESSION["cedula_estudiante"];
 $cod=$_SESSION["codigo"];
 
 echo $ced;
+ echo "<br>";
 echo $cod;
-echo $finalResult1;
-if ($finalResult1=="A") {
-	# code...
-}
+ echo "<br>";
+/*echo $finalResult1;
+ echo "<br>";
 echo $finalResult2;
+ echo "<br>";
 echo "$finalResult3";
+echo "<br>";
 echo "$finalResult4";
+echo "<br>";
 echo "$finalResult5";
+echo "<br>";
 echo "$finalResult6";
+echo "<br>";
 echo "$finalResult7";
+echo "<br>";
 echo "$finalResult8";
+echo "<br>";
 echo "$finalResult9";
+echo "<br>";
 echo "$finalResult10";
+echo "<br>*/
 
 
 
@@ -42,11 +51,13 @@ function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
 	
 	if (($a==true) and ($b==true) and ($c==true)) {
 		$query="insert into resultado values('',$ced,$cod,$p,'1') ";
-		$insertar=mysql_query($query) or die('Error de sql');
+		echo "$query";
+		//$insertar=mysql_query($query) or die('Error de sql');
 		
 	}else{
 		$query="insert into resultado values('',$ced,$cod,$p,'0') ";
-		$insertar=mysql_query($query) or die('Error de sql');
+		echo "$query";
+		//$insertar=mysql_query($query) or die('Error de sql');
 		
 	}
 }
@@ -64,6 +75,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	$a;
 	$b;
 	$c;
+	$aux="";
 	while ($respuesta=mysql_fetch_array($respuestas, MYSQL_ASSOC)) {
 	  if ($cont2==1) {
 	    $aux=$aux."\nA) "."$respuesta[opcion_respuesta]";
@@ -81,106 +93,300 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 	  $cont2++;
 
 	}
-	$aux2=array($cont, $a, $b,$c);
+	$aux2=array($pregunta['id_pregunta'], $a, $b,$c);
 	$array_preguntas[$cont]=$aux2;
 	$cont++;
 }
 
+
 $arrlength=count($array_preguntas);
+
 for($x = 1; $x <= $arrlength; $x++) {
       $aux3=$array_preguntas[$x];
-      switch ($cont) {
-			case '0':
-			break;
-			case '1':
+      $texta="";
+      //echo "$finalResult1";
+      switch ($x) {
+      	case '1':
+      		$texta=$finalResult1;
+      		//
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-				$a=verificacion_respuesta( 1,$pregunta['verificacion']);
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-			break;
-			case '2':
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-				$b=verificacion_respuesta( 1,$pregunta['verificacion']);
+			}
+      		break;
+      	case '2':
+      		$texta=$finalResult2;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-			break;
-			case '3':
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-				$c=verificacion_respuesta(1,$pregunta['verificacion']);
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
 				
-			break;
-
-		}
-
-      $a=verificacion_respuesta(,$aux3[1]);
-      $b=verificacion_respuesta(,$aux3[2]);
-      $c=verificacion_respuesta(,$aux3[3]);
+			}
+      		break;	
+      	case '3':
+      		$texta=$finalResult3;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}      		
+      		break;
+  		case '4':
+	  		$texta=$finalResult4;
+	  		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+	  		break;
+  		case '5':
+      		$texta=$finalResult5;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+      		break;
+      	case '6':
+      		$texta=$finalResult6;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+      		break;
+  		case '7':
+	  		$texta=$finalResult7;
+	  		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+	  		break;
+	  	case '8':
+      		$texta=$finalResult8;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+      		break;
+      	case '9':
+      		$texta=$finalResult9;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+      		break;
+      	case '10':
+      		$texta=$finalResult10;
+      		if ((trim($texta)=="A.")||(trim($texta)=="Letra a.")||(trim($texta)=="Letra A.")) {
+				$a=verificacion_respuesta(1,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="B.")||(trim($texta)=="Letra b.")||(trim($texta)=="Letra B.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(1,$aux3[2]);
+			    $c=verificacion_respuesta(0,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+			if ((trim($texta)=="C.")||(trim($texta)=="Letra c.")||(trim($texta)=="Letra C.")) {
+				$a=verificacion_respuesta(0,$aux3[1]);
+				$b=verificacion_respuesta(0,$aux3[2]);
+			    $c=verificacion_respuesta(1,$aux3[3]);
+			    verificacion_pregunta($aux3[0],$ced,$cod ,$a,$b,$c);
+			    //echo "$a\n$b\n$c";			      
+				
+			}
+      		break;
+      	default:
+      		# code...
+      		break;
+      }   
       echo $aux3[0].";".$aux3[1].";".$aux3[2].";".$aux3[3];
       echo "<br>";
   }
 
 
-/*
-$query="select * from pregunta join respuesta on pregunta.id_pregunta=respuesta.id_pregunta where id_prueba=".$cod;
 
-$preguntas=mysql_query($query) or die('Error de sql');
-$cont=1;
-$a;
-$b;
-$c;
-while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
-	
-	for($x = 0; $x < $arrlength; $x++) {
-		if ($pregunta['id_respuesta']==$resp[$x]) {
-			switch ($cont) {
-				case '0':
-				break;
-				case '1':
-					
-					$a=verificacion_respuesta( 1,$pregunta['verificacion']);
-					
-				break;
-				case '2':
-					
-					$b=verificacion_respuesta( 1,$pregunta['verificacion']);
-					
-				break;
-				case '3':
-					
-					$c=verificacion_respuesta(1,$pregunta['verificacion']);
-					
-				break;
-
-			}
-			break;
-		}else{
-			
-			switch ($cont) {
-				case '0':
-				break;
-				case '1':
-					$a=verificacion_respuesta(0,$pregunta['verificacion']);
-				break;
-				case '2':
-					$b=verificacion_respuesta(0,$pregunta['verificacion']);
-				break;
-				case '3':
-					$c=verificacion_respuesta(0,$pregunta['verificacion']);
-				break;
-
-			}
-
-		}
-	   
-	}
-	if ($cont==3) {
-		
-		verificacion_pregunta($pregunta['id_pregunta'],$ced,$cod ,$a,$b,$c);
-		$cont=1;
-	}else{
-		$cont++;
-	}
-
-}
-*/	
 ?>
 
 <!DOCTYPE html>
@@ -200,7 +406,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 		$cont2++;
 		
 	}
-	session_destroy();
+	//session_destroy();
 ?>
 	<form action="../index.html">
 		<button>Salir</button>	

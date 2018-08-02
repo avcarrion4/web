@@ -4,6 +4,7 @@
   extract($_POST);
   session_start();
   
+  
   $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];           
   $preguntas=mysql_query($query) or die('Error de sql');
   $array_preguntas;
@@ -85,7 +86,7 @@
     
   </section>
 	<SECTION id ="sss">
-    <form method="post"  alt="formulario de examen">
+    <form method="post"  alt="formulario de examen" action="calificacion2.php">
 
 <fieldset style="padding: 3em;">
             <legend>Datos de la evaluacion</legend>
@@ -364,32 +365,26 @@
 
 
       }
-      /*for (var i = 1; i < cont; i++) {
+      for (var i = 1; i < cont; i++) {
         var aux1="finalResult";  
         aux1=aux1.concat(i);
         var texta = document.getElementById(aux1);
         
-        if ((texta.value.trim()=="A")||(texta.value.trim()=="letra a")||(texta.value.trim()=="letra A")) {
+        if ((texta.value.trim()=="A")||(texta.value.trim()=="Letra a")||(texta.value.trim()=="Letra A")) {
 
           alert("<?php 
              ?>");
         }
-        if ((texta.value.trim()=="B")||(texta.value.trim()=="letra b")||(texta.value.trim()=="letra B")) {
+        if ((texta.value.trim()=="B")||(texta.value.trim()=="Letra b")||(texta.value.trim()=="Letra B")) {
           
           alert("<?php echo "Siiiiiiiii BBB"; ?>");
         }
-        if ((texta.value.trim()=="C")||(texta.value=="letra a")) {
+        if ((texta.value.trim()=="C")||(texta.value.trim()=="Letra c")||(texta.value.trim()=="Letra C")) {
           
           alert("<?php echo "Siiiiiiiii CCCC"; ?>");
         }
-        //alert(texta.value);
-        if (i>9) {
-          alert("Respuestas Validadas");
-        }
-      
 
-
-      }*/
+      }
       
 
       //var texta = document.getElementById();
