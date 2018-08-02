@@ -38,6 +38,7 @@ include("../dll/config.php");
   <a href="panel.php" >Alumnos</a>
   <a href="doc.php" >Docente</a>
   <a class="active" href="materia.php">Materias</a>
+  <a href="../internas/agPruebas.php">Pruebas</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -141,15 +142,35 @@ function myFunction() {
 		</div>
 
 
-		<div class="form-group">
+	
 
 
-		    <label for="ciclo"> Ciclo </label>
-    	<input type="text" id="ciclo" name="ciclo" placeholder="ciclo">
+<div class="form-group">
+		    <label for="ciclo">Ciclo</label>
+		    <select class="form-control" id="ciclo" name="ciclo" >
+
+		   <?php
+
+		   	for ($i=1; $i <=11 ; $i++) { 
+
+		   		?>
+		   		
+		   	
 
 
+		    			<option value="<?php echo $i; ?>"> <?php  echo $i;  ?></option>
+		<?php
+	
 
+}
+
+		?>
+		    
+			</select>
 		</div>
+
+
+
 
 		<div class="form-group">
 

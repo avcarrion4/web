@@ -35,9 +35,10 @@ include("../dll/config.php");
 </nav>
 <hr id="hruno" color="yellow" size=1  ">
 <nav class="topnav" id="myTopnav">
-  <a href="panel.php" >Alumnos</a>
-  <a href="doc.php" >Docente</a>
-  <a class="active" href="materia.php">Materias</a>
+  <a href="../panelAdmin/panel.php" >Alumnos</a>
+  <a href="../panelAdmin/doc.php" >Docente</a>
+  <a  href="../panelAdmin/materia.php">Materias</a>
+  <a class="active" href="agPruebas.php">Pruebas</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -115,128 +116,100 @@ function myFunction() {
 <!-- Demo ads. Please ignore and remove. -->
 <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
 
-<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ASIGNAR MATERIA</h2>
+<h2 style="text-align: center; color: #FFFFFF;padding: 0.3em;background-color: #000;">ASIGNAR PRUEBAS</h2>
 <section id="cuerpoform">
 	<section id="info">
 
 				<section class="add">
 
 				
+<form id="fnuevo" action="insertarMateria.php" method="post">
+
 
 <fieldset>
-            <legend>Docentes</legend>
+            <legend>Agregar nuevo</legend>
 
 
 
-<?php  
-			$sql2="select * from docente_paralelo";
-			$result=mysql_query($sql2) or die ("error de id max");
-			$cont=0;
-			while ( $line=mysql_fetch_array($result)) {
-				$docets[$cont]=$line[1];
-				$parl[$cont]=$line[2];
-			
-				$cont=$cont+1;
-			}
+
+		<div class="form-group">
 
 
-			
-						
-			?>
+		    <label for="nombre_materia">Nombre materia </label>
+    	<input type="text" id="nombre_materia" name="nombre_materia" placeholder="nombre_materia">
 
 
 
-					<table id="customers">
-  <tr>
-    <th class="th">nombre_docente </th>
-  
-    <th class="th">Paralelo</th>
-    <th class="th">Materia</th>
-   
-    
-    <th class="crud">Asignar Materia	</th>
-  </tr>
+		</div>
+
+
 	
-  <?php
-
-  			for ($i=0; $i < count($docets); $i++) { 
-  				$sql2="select id_docente,nombre_docente from docente where id_docente='$docets[$i]'";
-			$results=mysql_query($sql2) or die ("error de id max");
-
-			$sql3="select nombre_paralelo from paralelo where id_paralelo='$parl[$i]'";
-			$resultss=mysql_query($sql3) or die ("error de id max");
-
-			$sql="select id_materia from paralelo where id_paralelo='$parl[$i]'";
-			$r=mysql_query($sql) or die ("error de id max");
 
 
-  			
-			
-		
-$ct=0;
-$var1=0;
-  while ($lines=mysql_fetch_array($results)) {
-  while ($liness=mysql_fetch_array($resultss)) {
-  while ($linesss=mysql_fetch_array($r)) {
-	$var[$ct]=$linesss[0];
-$ct=$ct+1;
+<div class="form-group">
+		    <label for="ciclo">Ciclo</label>
+		    <select class="form-control" id="ciclo" name="ciclo" >
+
+		   <?php
+
+		   	for ($i=1; $i <=11 ; $i++) { 
+
+		   		?>
+		   		
+		   	
 
 
+		    			<option value="<?php echo $i; ?>"> <?php  echo $i;  ?></option>
+		<?php
+	
 
-				
-				$sqll="select nombre_materia from materia where id_materia='$var[$var1]'";
-				$var1=$var1+1;
-				$rr=mysql_query($sqll) or die ("error de id max");
+}
 
-				    $linessss=mysql_fetch_array($rr)?>
-				<tr >
-				
-				<td><?php echo $lines[1] ?></td>
-
-				<td><?php echo $liness[0] ?></td>
-
-				<td><?php echo $linessss[0] ?></td>
-					
-				
-
-				<?php 
-
-			 $a=$line[0];
-				 ?>
-				
-				<td> <a href='asignaP.php?id=<?php echo $lines[0] ?>'>Asignar materia</a></td>
-				
-
-				</tr>
-
-
-				<?php
-
-  
-
-				}
+		?>
+		    
+			</select>
+		</div>
 
 
 
 
-				}}} ?>
+		<div class="form-group">
 
- 
-</table>
-		
 
+		    <label for="titulacion">Titulacion</label>
 
 
 
+		    <select class="form-control" id="titulacion" name="titulacion" >
+
+		    <?php
+
+		    $query="select * from titulacion";
+		    $talleres=mysql_query($query) or die('error');
+
+		    while ($taller= mysql_fetch_array($talleres,MYSQLI_ASSOC)) {
+
+
+			?>
+			<option value="<?php echo $taller['id_titulacion']; ?>"> <?php  echo $taller['nombre_titulacion'];  ?></option>
+		<?php
+	}
+		?>
+		    
+			</select>
 
 
 
-
-		
+		</div>
 
 
 		</fieldset>
 
+
+    
+  	  <button id="ag">Agregar</button>
+
+ 	 </form>
 
     
 					

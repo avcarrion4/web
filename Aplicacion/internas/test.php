@@ -7,11 +7,14 @@
   
     function validar($cedula,$codigo){
       $query="Select * from alumno where cedula_alumno="."$cedula";
-      $respuesta=mysql_query($query) or die('Error de sql');
+   
+      $respuesta=mysql_query($query) or die('Error de sqllll');
+    
       if ($pregunta=mysql_fetch_array($respuesta, MYSQL_ASSOC)) {
-        $query2="SELECT cedula_alumno, id_prueba FROM `resultado` WHERE cedula_alumno=$cedula and id_prueba=(SELECT id_prueba FROM `prueba` WHERE codigo_prueba=$codigo)";
+        $query2="SELECT id_alumno, id_prueba FROM `resultado` WHERE id_alumno=$cedula and id_prueba=(SELECT id_prueba FROM `prueba` WHERE codigo_prueba=$codigo)";
         
-        $respuesta2=mysql_query($query2) or die('Error de sql');
+        
+        $respuesta2=mysql_query($query2) or die('Error de sqlaaaa');
         if ($pregunta2=mysql_fetch_array($respuesta2, MYSQL_ASSOC)) {
           echo "<script> alert('Ya ha realizado la prueba')</script>";
           echo "<script>location.href='acceso_test.php'</script>";
@@ -22,10 +25,12 @@
             $_SESSION["codigo"] = $codigo;
             echo "<script>location.href='unido.php'</script>";
           } else {
+            
             session_start();
             $_SESSION["cedula_estudiante"] = $cedula;
             $_SESSION["codigo"] = $codigo;
           }
+
           
           
         }        

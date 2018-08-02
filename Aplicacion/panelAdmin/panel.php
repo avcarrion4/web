@@ -38,6 +38,7 @@ include("../dll/config.php");
   <a href="panel.php" class="active">Alumnos</a>
   <a href="doc.php">Docente</a>
   <a href="materia.php">Materias</a>
+  <a href="../internas/agPruebas.php">Pruebas</a>
  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
