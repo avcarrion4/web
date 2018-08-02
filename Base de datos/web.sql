@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2018 a las 03:05:55
+-- Tiempo de generación: 02-08-2018 a las 11:27:14
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -246,39 +246,39 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apellido_docente`, `apellido2_docente`, `cedula_docente`, `telefono_docente`, `correo_docente`, `docente_pass`, `titulo_docente`, `id_area`, `id_titulacion`) VALUES
-(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'docente1@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'docente2@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'docente3@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'docente4@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'docente5@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'docente6@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'docente7@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'docente8@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'docente9@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'docente10@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'docente11@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'docente12@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'docente13@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'docente14@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'docente15@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'docente16@utpl.edu.ec', '1234', 'Ing', 0, 0),
-(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'docente17@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'docente18@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'docente19@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'docente20@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'docente21@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'docente22@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'docente23@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(25, 'Docente241', 'Docente242', 'Docentea241', '', '1924', '095024', 'docente24@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'docente25@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'docente26@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'docente27@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'docente28@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'docente29@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'docente30@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'docente31@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'docente32@utpl.edu.ec', '4321', 'Ing', 0, 0),
-(34, 'ramiro', 'r', 'ramirez', 'c', '11', '111', 'rl@gmail.com', 'ing', '159', 0, 0);
+(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'docente1@utpl.edu.ec', '1234', 'Ing', 1, 7),
+(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'docente2@utpl.edu.ec', '1234', 'Ing', 1, 7),
+(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'docente3@utpl.edu.ec', '1234', 'Ing', 1, 8),
+(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'docente4@utpl.edu.ec', '1234', 'Ing', 1, 8),
+(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'docente5@utpl.edu.ec', '1234', 'Ing', 2, 6),
+(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'docente6@utpl.edu.ec', '1234', 'Ing', 2, 6),
+(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'docente7@utpl.edu.ec', '1234', 'Ing', 2, 5),
+(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'docente8@utpl.edu.ec', '1234', 'Ing', 2, 5),
+(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'docente9@utpl.edu.ec', '1234', 'Ing', 3, 1),
+(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'docente10@utpl.edu.ec', '1234', 'Ing', 3, 1),
+(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'docente11@utpl.edu.ec', '1234', 'Ing', 3, 2),
+(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'docente12@utpl.edu.ec', '1234', 'Ing', 3, 2),
+(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'docente13@utpl.edu.ec', '1234', 'Ing', 4, 3),
+(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'docente14@utpl.edu.ec', '1234', 'Ing', 4, 3),
+(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'docente15@utpl.edu.ec', '1234', 'Ing', 4, 4),
+(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'docente16@utpl.edu.ec', '1234', 'Ing', 4, 4),
+(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'docente17@utpl.edu.ec', '4321', 'Ing', 1, 7),
+(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'docente18@utpl.edu.ec', '4321', 'Ing', 1, 7),
+(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'docente19@utpl.edu.ec', '4321', 'Ing', 1, 8),
+(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'docente20@utpl.edu.ec', '4321', 'Ing', 1, 8),
+(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'docente21@utpl.edu.ec', '4321', 'Ing', 2, 6),
+(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'docente22@utpl.edu.ec', '4321', 'Ing', 2, 6),
+(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'docente23@utpl.edu.ec', '4321', 'Ing', 2, 5),
+(25, 'Docente241', 'Docente242', 'Docentea241', '', '1924', '095024', 'docente24@utpl.edu.ec', '4321', 'Ing', 2, 5),
+(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'docente25@utpl.edu.ec', '4321', 'Ing', 3, 1),
+(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'docente26@utpl.edu.ec', '4321', 'Ing', 3, 1),
+(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'docente27@utpl.edu.ec', '4321', 'Ing', 3, 2),
+(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'docente28@utpl.edu.ec', '4321', 'Ing', 3, 2),
+(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'docente29@utpl.edu.ec', '4321', 'Ing', 4, 3),
+(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'docente30@utpl.edu.ec', '4321', 'Ing', 4, 3),
+(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'docente31@utpl.edu.ec', '4321', 'Ing', 4, 4),
+(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'docente32@utpl.edu.ec', '4321', 'Ing', 4, 4),
+(34, 'ramiro', 'r', 'ramirez', 'c', '11', '111', 'rl@gmail.com', 'ing', '159', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -333,38 +333,39 @@ CREATE TABLE `paralelo` (
 --
 
 INSERT INTO `paralelo` (`id_paralelo`, `nombre_paralelo`, `id_materia`, `id_docente`) VALUES
-(1, 'A', 1, 0),
-(2, 'B', 1, 0),
-(3, 'A', 2, 0),
-(4, 'B', 2, 0),
-(5, 'A', 3, 0),
-(6, 'B', 3, 0),
-(7, 'A', 4, 0),
-(8, 'B', 4, 0),
-(9, 'A', 5, 0),
-(10, 'B', 5, 0),
-(11, 'A', 6, 0),
-(12, 'B', 6, 0),
-(13, 'A', 7, 0),
-(14, 'B', 7, 0),
-(15, 'A', 8, 0),
-(16, 'B', 8, 0),
-(17, 'A', 9, 0),
-(18, 'B', 9, 0),
-(19, 'A', 10, 0),
-(20, 'B', 10, 0),
-(21, 'A', 11, 0),
-(22, 'B', 11, 0),
-(23, 'A', 12, 0),
-(24, 'B', 12, 0),
-(25, 'A', 13, 0),
-(26, 'B', 13, 0),
-(27, 'A', 14, 0),
-(28, 'B', 14, 0),
-(29, 'A', 15, 0),
-(30, 'B', 15, 0),
-(31, 'A', 16, 0),
-(32, 'B', 16, 0);
+(1, 'A', 1, 10),
+(2, 'B', 1, 11),
+(3, 'A', 2, 26),
+(4, 'B', 2, 27),
+(5, 'A', 3, 12),
+(6, 'B', 3, 13),
+(7, 'A', 4, 28),
+(8, 'B', 4, 29),
+(9, 'A', 5, 14),
+(10, 'B', 5, 15),
+(11, 'A', 6, 30),
+(12, 'B', 6, 31),
+(13, 'A', 7, 16),
+(14, 'B', 7, 17),
+(15, 'A', 8, 32),
+(16, 'B', 8, 33),
+(17, 'A', 9, 8),
+(18, 'B', 9, 9),
+(19, 'A', 10, 24),
+(20, 'B', 10, 25),
+(21, 'A', 11, 6),
+(22, 'B', 11, 7),
+(23, 'A', 12, 22),
+(24, 'B', 12, 23),
+(25, 'A', 13, 2),
+(26, 'B', 13, 3),
+(27, 'A', 14, 18),
+(28, 'B', 14, 19),
+(29, 'A', 15, 4),
+(30, 'B', 15, 5),
+(31, 'A', 16, 20),
+(32, 'B', 16, 21),
+(33, 'C', 15, 34);
 
 -- --------------------------------------------------------
 
@@ -728,7 +729,7 @@ ALTER TABLE `materia`
 -- AUTO_INCREMENT de la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
-  MODIFY `id_paralelo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_paralelo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `periodo`
