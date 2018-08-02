@@ -51,7 +51,6 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 			<li><a href="#tab1"><span class="fa fa-file-text"></span><span class="tab-text">Crear Prueba</span></a></li>
 			<li><a href="#tab2"><span class="fa fa-upload"></span><span class="tab-text">Asignar Preguntas</span></a></li>
 			<li><a href="#tab3"><span class="fa fa-briefcase"></span><span class="tab-text">Listar Materias</span></a></li>
-			<li><a href="#tab4"><span class="fa fa-list-alt"></span><span class="tab-text">Vizualizar Resultados</span></a></li>
 		</ul>
 
 		<div class="secciones">
@@ -114,7 +113,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 		    		<label for="materias">Materias asignadas</label>
 		    		<select class="form-control" id="materias" name="materia []" multiple>
 		    			<?php 
-		    			$ry="Select * FROM materia m WHERE m.id_materia IN (Select dp.id_paralelo FROM docente_paralelo dp WHERE dp.id_docente ="." $ver)";
+		    			$ry="Select m.nombre_materia FROM materia m WHERE m.id_materia IN (SELECT p.id_materia FROM paralelo p WHERE p.id_docente ="." $ver)";
 		    			$res=mysql_query($ry) or die ('error de sql');
 		    			while ($er = mysql_fetch_array($res,MYSQL_ASSOC)) {
 		    				?>
@@ -125,10 +124,6 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 		    	</select>
 			</div>
 
-			</article>
-			<article id="tab4">
-				<h1>Vizualizar Resultados</h1>
-				
 			</article>
 		</div>
 	</div>
