@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2018 a las 11:27:14
+-- Tiempo de generación: 02-08-2018 a las 11:43:03
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -541,27 +541,11 @@ INSERT INTO `respuesta` (`id_respuesta`, `opcion_respuesta`, `verificacion`, `id
 
 CREATE TABLE `resultado` (
   `id_resultado` int(10) NOT NULL,
-  `cedula_alumno` int(10) NOT NULL,
+  `id_alumno` int(10) NOT NULL,
   `id_prueba` int(10) NOT NULL,
   `id_pregunta` int(10) NOT NULL,
   `valor` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `resultado`
---
-
-INSERT INTO `resultado` (`id_resultado`, `cedula_alumno`, `id_prueba`, `id_pregunta`, `valor`) VALUES
-(1, 1726793969, 17, 11, 0),
-(2, 1726793969, 17, 12, 0),
-(3, 1726793969, 17, 13, 0),
-(4, 1726793969, 17, 14, 0),
-(5, 1726793969, 17, 15, 0),
-(6, 1726793969, 17, 16, 0),
-(7, 1726793969, 17, 17, 1),
-(8, 1726793969, 17, 18, 0),
-(9, 1726793969, 17, 20, 1),
-(10, 1726793969, 17, 25, 0);
 
 -- --------------------------------------------------------
 
@@ -676,7 +660,10 @@ ALTER TABLE `respuesta`
 -- Indices de la tabla `resultado`
 --
 ALTER TABLE `resultado`
-  ADD PRIMARY KEY (`id_resultado`);
+  ADD PRIMARY KEY (`id_resultado`),
+  ADD KEY `fk_alumno_resultado` (`id_alumno`),
+  ADD KEY `fk_prueba_resultado` (`id_prueba`),
+  ADD KEY `fk_pregunta_resultado` (`id_pregunta`);
 
 --
 -- Indices de la tabla `titulacion`
@@ -827,6 +814,14 @@ ALTER TABLE `prueba`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `fk_respuesta_pregunta` FOREIGN KEY (`id_pregunta`) REFERENCES `pregunta` (`id_pregunta`);
+
+--
+-- Filtros para la tabla `resultado`
+--
+ALTER TABLE `resultado`
+  ADD CONSTRAINT `fk_alumno_resultado` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`),
+  ADD CONSTRAINT `fk_pregunta_resultado` FOREIGN KEY (`id_pregunta`) REFERENCES `pregunta` (`id_pregunta`),
+  ADD CONSTRAINT `fk_prueba_resultado` FOREIGN KEY (`id_prueba`) REFERENCES `prueba` (`id_prueba`);
 
 --
 -- Filtros para la tabla `titulacion`
