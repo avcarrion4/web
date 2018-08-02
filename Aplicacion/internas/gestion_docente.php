@@ -20,11 +20,32 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 	<link rel="stylesheet" href="../css/estilosjs.css">
 	<link rel="stylesheet" href="../css/font-awesome.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/css.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/estilosAdmin.css">
+	<link rel="stylesheet" type="text/css" href="../css/cssfooter.css">
+	<script type="text/javascript" src="../css/footer.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/cssHeader.css">
+	<link rel="stylesheet" type="text/css" href="../css/cssSlide.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/header-fixed.css">
+	<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/demo.css">
 	<script src="../js/main.js"></script>
-	<h1><?php echo $nombres ?></h1>
+	
 </head>
-<body>
-	<div class="wrap">
+<body style="background-color: gray">
+<nav class="topnav" id="myTopnav">
+  <a href="../index.html" class="active">Cerrar sesion</a>
+  
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</nav> <hr id="hruno" color="yellow" size=2  ">
+	<div class="wrap" >
 		<ul class="tabs">
 			<li><a href="#tab1"><span class="fa fa-file-text"></span><span class="tab-text">Crear Prueba</span></a></li>
 			<li><a href="#tab2"><span class="fa fa-upload"></span><span class="tab-text">Asignar Preguntas</span></a></li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2018 a las 06:53:55
+-- Tiempo de generación: 02-08-2018 a las 03:05:55
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 5.6.33
 
@@ -99,7 +99,8 @@ INSERT INTO `alumno` (`id_alumno`, `nombre_alumno`, `nombre2_alumno`, `apellido_
 (60, 'Alumno471', 'Alumno472', 'Apellido471', 'Apellido472', '1147', '09047', 'alumno47@utpl.edu.ec', 26, 0, 3),
 (61, 'Alumno481', 'Alumno482', 'Apellido481', 'Apellido482', '1148', '09048', 'alumno48@utpl.edu.ec', 27, 25, 6),
 (62, 'Alumno491', 'Alumno492', 'Apellido491', 'Apellido492', '1149', '09049', 'alumno49@utpl.edu.ec', 18, 30, 4),
-(63, 'Alumno501', 'Alumno502', 'Apellido501', 'Apellido502', '1150', '09050', 'alumno50@utpl.edu.ec', 19, 35, 9);
+(63, 'Alumno501', 'Alumno502', 'Apellido501', 'Apellido502', '1150', '09050', 'alumno50@utpl.edu.ec', 19, 35, 9),
+(64, 'leonardo    	 ', 'coroenl    	 ', 'coronel    	 ', 'ramirez', '1212    	 ', '1111    	 ', 'rlra@gmail.com    	 ', 23, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -235,96 +236,49 @@ CREATE TABLE `docente` (
   `telefono_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `correo_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `docente_pass` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `titulo_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `titulo_docente` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_area` int(10) NOT NULL,
+  `id_titulacion` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `docente`
 --
 
-INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apellido_docente`, `apellido2_docente`, `cedula_docente`, `telefono_docente`, `correo_docente`, `docente_pass`, `titulo_docente`) VALUES
-(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'docente1@utpl.edu.ec', '1234', 'Ing'),
-(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'docente2@utpl.edu.ec', '1234', 'Ing'),
-(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'docente3@utpl.edu.ec', '1234', 'Ing'),
-(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'docente4@utpl.edu.ec', '1234', 'Ing'),
-(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'docente5@utpl.edu.ec', '1234', 'Ing'),
-(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'docente6@utpl.edu.ec', '1234', 'Ing'),
-(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'docente7@utpl.edu.ec', '1234', 'Ing'),
-(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'docente8@utpl.edu.ec', '1234', 'Ing'),
-(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'docente9@utpl.edu.ec', '1234', 'Ing'),
-(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'docente10@utpl.edu.ec', '1234', 'Ing'),
-(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'docente11@utpl.edu.ec', '1234', 'Ing'),
-(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'docente12@utpl.edu.ec', '1234', 'Ing'),
-(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'docente13@utpl.edu.ec', '1234', 'Ing'),
-(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'docente14@utpl.edu.ec', '1234', 'Ing'),
-(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'docente15@utpl.edu.ec', '1234', 'Ing'),
-(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'docente16@utpl.edu.ec', '1234', 'Ing'),
-(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'docente17@utpl.edu.ec', '4321', 'Ing'),
-(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'docente18@utpl.edu.ec', '4321', 'Ing'),
-(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'docente19@utpl.edu.ec', '4321', 'Ing'),
-(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'docente20@utpl.edu.ec', '4321', 'Ing'),
-(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'docente21@utpl.edu.ec', '4321', 'Ing'),
-(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'docente22@utpl.edu.ec', '4321', 'Ing'),
-(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'docente23@utpl.edu.ec', '4321', 'Ing'),
-(25, 'Docente241', 'Docente242', 'Docentea241', '', '1924', '095024', 'docente24@utpl.edu.ec', '4321', 'Ing'),
-(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'docente25@utpl.edu.ec', '4321', 'Ing'),
-(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'docente26@utpl.edu.ec', '4321', 'Ing'),
-(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'docente27@utpl.edu.ec', '4321', 'Ing'),
-(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'docente28@utpl.edu.ec', '4321', 'Ing'),
-(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'docente29@utpl.edu.ec', '4321', 'Ing'),
-(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'docente30@utpl.edu.ec', '4321', 'Ing'),
-(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'docente31@utpl.edu.ec', '4321', 'Ing'),
-(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'docente32@utpl.edu.ec', '4321', 'Ing');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `docente_paralelo`
---
-
-CREATE TABLE `docente_paralelo` (
-  `id_docpar` int(10) NOT NULL,
-  `id_docente` int(10) NOT NULL,
-  `id_paralelo` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `docente_paralelo`
---
-
-INSERT INTO `docente_paralelo` (`id_docpar`, `id_docente`, `id_paralelo`) VALUES
-(1, 2, 1),
-(2, 3, 2),
-(3, 4, 3),
-(4, 5, 4),
-(5, 6, 5),
-(6, 7, 6),
-(7, 8, 7),
-(8, 9, 8),
-(9, 10, 9),
-(10, 11, 10),
-(11, 12, 11),
-(12, 13, 12),
-(13, 14, 13),
-(14, 15, 14),
-(15, 16, 15),
-(16, 17, 16),
-(17, 18, 17),
-(18, 19, 18),
-(19, 20, 19),
-(20, 21, 20),
-(21, 22, 21),
-(22, 23, 22),
-(23, 24, 23),
-(24, 25, 24),
-(25, 26, 25),
-(26, 27, 26),
-(27, 28, 27),
-(28, 29, 28),
-(29, 30, 29),
-(30, 31, 30),
-(31, 32, 31),
-(32, 33, 32);
+INSERT INTO `docente` (`id_docente`, `nombre_docente`, `nombre2_docente`, `apellido_docente`, `apellido2_docente`, `cedula_docente`, `telefono_docente`, `correo_docente`, `docente_pass`, `titulo_docente`, `id_area`, `id_titulacion`) VALUES
+(2, 'Docente11', 'Docente12', 'Docentea11', 'Docentea12', '1901', '095001', 'docente1@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(3, 'Docente21', 'Docente22', 'Docentea21', 'Docentea22', '1902', '095002', 'docente2@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(4, 'Docente31', 'Docente32', 'Docentea31', 'Docentea32', '1903', '095003', 'docente3@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(5, 'Docente41', 'Docente42', 'Docentea41', 'Docentea42', '1904', '095004', 'docente4@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(6, 'Docente51', 'Docente52', 'Docentea51', 'Docentea52', '1905', '095005', 'docente5@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(7, 'Docente61', 'Docente62', 'Docentea61', 'Docentea62', '1906', '095006', 'docente6@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(8, 'Docente71', 'Docente72', 'Docentea71', 'Docentea72', '1907', '095007', 'docente7@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(9, 'Docente81', 'Docente82', 'Docentea81', 'Docentea82', '1908', '095008', 'docente8@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(10, 'Docente91', 'Docente92', 'Docentea91', 'Docentea92', '1909', '095009', 'docente9@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(11, 'Docente101', 'Docente102', 'Docentea101', 'Docentea102', '1910', '095010', 'docente10@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(12, 'Docente111', 'Docente112', 'Docentea111', 'Docentea112', '1911', '095011', 'docente11@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(13, 'Docente121', 'Docente122', 'Docentea121', 'Docentea122', '1912', '095012', 'docente12@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(14, 'Docente131', 'Docente132', 'Docentea131', 'Docentea132', '1913', '095013', 'docente13@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(15, 'Docente141', 'Docente142', 'Docentea141', 'Docentea142', '1914', '095014', 'docente14@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(16, 'Docente151', 'Docente152', 'Docentea151', 'Docentea152', '1915', '095015', 'docente15@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(17, 'Docente161', 'Docente162', 'Docentea161', 'Docentea162', '1916', '095016', 'docente16@utpl.edu.ec', '1234', 'Ing', 0, 0),
+(18, 'Docente171', 'Docente172', 'Docentea171', 'Docentea172', '1917', '095017', 'docente17@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(19, 'Docente181', 'Docente182', 'Docentea181', 'Docentea182', '1918', '095018', 'docente18@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(20, 'Docente191', 'Docente192', 'Docentea191', 'Docentea192', '1919', '095019', 'docente19@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(21, 'Docente201', 'Docente202', 'Docentea201', 'Docentea202', '1920', '095020', 'docente20@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(22, 'Docente211', 'Docente212', 'Docentea211', 'Docentea212', '1921', '095021', 'docente21@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(23, 'Docente221', 'Docente222', 'Docentea221', 'Docentea222', '1922', '095022', 'docente22@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(24, 'Docente231', 'Docente232', 'Docentea231', 'Docentea232', '1923', '095023', 'docente23@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(25, 'Docente241', 'Docente242', 'Docentea241', '', '1924', '095024', 'docente24@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(26, 'Docente251', 'Docente252', 'Docentea251', 'Docentea252', '1925', '095025', 'docente25@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(27, 'Docente261', 'Docente262', 'Docentea261', 'Docentea262', '1926', '095026', 'docente26@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(28, 'Docente271', 'Docente272', 'Docentea271', 'Docentea272', '1927', '095027', 'docente27@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(29, 'Docente281', 'Docente282', 'Docentea281', 'Docentea282', '1928', '095028', 'docente28@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(30, 'Docente291', 'Docente292', 'Docentea291', 'Docentea292', '1929', '095029', 'docente29@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(31, 'Docente301', 'Docente302', 'Docentea301', 'Docentea302', '1930', '095030', 'docente30@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(32, 'Docente311', 'Docente312', 'Docentea311', 'Docentea312', '1931', '095031', 'docente31@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(33, 'Docente321', 'Docente322', 'Docentea321', 'Docentea322', '1932', '095032', 'docente32@utpl.edu.ec', '4321', 'Ing', 0, 0),
+(34, 'ramiro', 'r', 'ramirez', 'c', '11', '111', 'rl@gmail.com', 'ing', '159', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -370,46 +324,47 @@ INSERT INTO `materia` (`id_materia`, `nombre_materia`, `ciclo`, `id_titulacion`)
 CREATE TABLE `paralelo` (
   `id_paralelo` int(10) NOT NULL,
   `nombre_paralelo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `id_materia` int(10) NOT NULL
+  `id_materia` int(10) NOT NULL,
+  `id_docente` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `paralelo`
 --
 
-INSERT INTO `paralelo` (`id_paralelo`, `nombre_paralelo`, `id_materia`) VALUES
-(1, 'A', 1),
-(2, 'B', 1),
-(3, 'A', 2),
-(4, 'B', 2),
-(5, 'A', 3),
-(6, 'B', 3),
-(7, 'A', 4),
-(8, 'B', 4),
-(9, 'A', 5),
-(10, 'B', 5),
-(11, 'A', 6),
-(12, 'B', 6),
-(13, 'A', 7),
-(14, 'B', 7),
-(15, 'A', 8),
-(16, 'B', 8),
-(17, 'A', 9),
-(18, 'B', 9),
-(19, 'A', 10),
-(20, 'B', 10),
-(21, 'A', 11),
-(22, 'B', 11),
-(23, 'A', 12),
-(24, 'B', 12),
-(25, 'A', 13),
-(26, 'B', 13),
-(27, 'A', 14),
-(28, 'B', 14),
-(29, 'A', 15),
-(30, 'B', 15),
-(31, 'A', 16),
-(32, 'B', 16);
+INSERT INTO `paralelo` (`id_paralelo`, `nombre_paralelo`, `id_materia`, `id_docente`) VALUES
+(1, 'A', 1, 0),
+(2, 'B', 1, 0),
+(3, 'A', 2, 0),
+(4, 'B', 2, 0),
+(5, 'A', 3, 0),
+(6, 'B', 3, 0),
+(7, 'A', 4, 0),
+(8, 'B', 4, 0),
+(9, 'A', 5, 0),
+(10, 'B', 5, 0),
+(11, 'A', 6, 0),
+(12, 'B', 6, 0),
+(13, 'A', 7, 0),
+(14, 'B', 7, 0),
+(15, 'A', 8, 0),
+(16, 'B', 8, 0),
+(17, 'A', 9, 0),
+(18, 'B', 9, 0),
+(19, 'A', 10, 0),
+(20, 'B', 10, 0),
+(21, 'A', 11, 0),
+(22, 'B', 11, 0),
+(23, 'A', 12, 0),
+(24, 'B', 12, 0),
+(25, 'A', 13, 0),
+(26, 'B', 13, 0),
+(27, 'A', 14, 0),
+(28, 'B', 14, 0),
+(29, 'A', 15, 0),
+(30, 'B', 15, 0),
+(31, 'A', 16, 0),
+(32, 'B', 16, 0);
 
 -- --------------------------------------------------------
 
@@ -456,7 +411,11 @@ INSERT INTO `pregunta` (`id_pregunta`, `titulo_pregunta`, `id_prueba`) VALUES
 (17, 'En la mayoría de computadores, se guarda una pequeña parte del sistema operativo, en:', 17),
 (18, 'Cuando el empleado de un banco transfiere dinero a su cuenta, es muy posible que la transacción este siendo almacenada en:', 17),
 (20, 'Cual de los siguientes códigos de texto normalizado utiliza 7 byts y es el mas utilizado:', 17),
-(25, 'Seleccione el ejemplo mas común de software código abierto:', 17);
+(25, 'Seleccione el ejemplo mas común de software código abierto:', 17),
+(40, 'Cuanto tiempo se demora en marquetar una pagina', 38),
+(41, 'Que es html', 38),
+(42, 'cuanto es 2 + 2', 39),
+(43, 'capital de loja', 39);
 
 -- --------------------------------------------------------
 
@@ -508,7 +467,9 @@ INSERT INTO `prueba` (`id_prueba`, `codigo_prueba`, `nombre_prueba`, `estado_pru
 (30, '0029', 'Introduccion a la arquitectura	B', 0, 2),
 (31, '0030', 'Dibujo artistico	B', 1, 14),
 (32, '0031', 'Logica de la programacion	B', 0, 6),
-(33, '0032', 'Fundamentos informaticos	B', 1, 26);
+(33, '0032', 'Fundamentos informaticos	B', 1, 26),
+(38, '0033', 'Supletorio web', 1, 3),
+(39, '18', 'ing web', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -557,7 +518,19 @@ INSERT INTO `respuesta` (`id_respuesta`, `opcion_respuesta`, `verificacion`, `id
 (27, 'Aplicacion', 1, 15),
 (28, 'Microsoft Windows', 0, 25),
 (29, 'Mac OS', 0, 25),
-(30, 'Linux', 1, 25);
+(30, 'Linux', 1, 25),
+(43, '2 dias', 0, 40),
+(44, '3 dias', 1, 40),
+(45, '1 año', 0, 40),
+(46, 'Lenguaje de programacion', 0, 41),
+(47, 'Oracion', 0, 41),
+(48, 'Maquetacion', 1, 41),
+(49, '3', 0, 42),
+(50, '1', 0, 42),
+(51, '4', 1, 42),
+(52, 'quito', 0, 43),
+(53, 'cuenca', 0, 43),
+(54, 'loja', 1, 43);
 
 -- --------------------------------------------------------
 
@@ -572,6 +545,22 @@ CREATE TABLE `resultado` (
   `id_pregunta` int(10) NOT NULL,
   `valor` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `resultado`
+--
+
+INSERT INTO `resultado` (`id_resultado`, `cedula_alumno`, `id_prueba`, `id_pregunta`, `valor`) VALUES
+(1, 1726793969, 17, 11, 0),
+(2, 1726793969, 17, 12, 0),
+(3, 1726793969, 17, 13, 0),
+(4, 1726793969, 17, 14, 0),
+(5, 1726793969, 17, 15, 0),
+(6, 1726793969, 17, 16, 0),
+(7, 1726793969, 17, 17, 1),
+(8, 1726793969, 17, 18, 0),
+(9, 1726793969, 17, 20, 1),
+(10, 1726793969, 17, 25, 0);
 
 -- --------------------------------------------------------
 
@@ -635,15 +624,9 @@ ALTER TABLE `discapacidad`
 -- Indices de la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD PRIMARY KEY (`id_docente`);
-
---
--- Indices de la tabla `docente_paralelo`
---
-ALTER TABLE `docente_paralelo`
-  ADD PRIMARY KEY (`id_docpar`),
-  ADD KEY `fk_docente_paralelo` (`id_docente`),
-  ADD KEY `fk_paralelo_docente` (`id_paralelo`);
+  ADD PRIMARY KEY (`id_docente`),
+  ADD KEY `fk_area_docente` (`id_area`),
+  ADD KEY `fk_titulacion_docente` (`id_titulacion`);
 
 --
 -- Indices de la tabla `materia`
@@ -657,7 +640,8 @@ ALTER TABLE `materia`
 --
 ALTER TABLE `paralelo`
   ADD PRIMARY KEY (`id_paralelo`),
-  ADD KEY `fk_paralelo_materia` (`id_materia`);
+  ADD KEY `fk_paralelo_materia` (`id_materia`),
+  ADD KEY `fk_docente_paralelos` (`id_docente`);
 
 --
 -- Indices de la tabla `periodo`
@@ -677,6 +661,7 @@ ALTER TABLE `pregunta`
 --
 ALTER TABLE `prueba`
   ADD PRIMARY KEY (`id_prueba`),
+  ADD UNIQUE KEY `codigo_prueba` (`codigo_prueba`),
   ADD KEY `fk_prueba_docente` (`id_docente`);
 
 --
@@ -707,7 +692,7 @@ ALTER TABLE `titulacion`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_alumno` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno_paralelo`
@@ -731,13 +716,7 @@ ALTER TABLE `discapacidad`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `id_docente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT de la tabla `docente_paralelo`
---
-ALTER TABLE `docente_paralelo`
-  MODIFY `id_docpar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_docente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
@@ -761,25 +740,25 @@ ALTER TABLE `periodo`
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `id_pregunta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pregunta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `prueba`
 --
 ALTER TABLE `prueba`
-  MODIFY `id_prueba` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_prueba` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id_respuesta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_respuesta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `id_resultado` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_resultado` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `titulacion`
@@ -811,11 +790,11 @@ ALTER TABLE `area`
   ADD CONSTRAINT `fk_area_periodo` FOREIGN KEY (`id_periodo`) REFERENCES `periodo` (`id_periodo`);
 
 --
--- Filtros para la tabla `docente_paralelo`
+-- Filtros para la tabla `docente`
 --
-ALTER TABLE `docente_paralelo`
-  ADD CONSTRAINT `fk_docente_paralelo` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`),
-  ADD CONSTRAINT `fk_paralelo_docente` FOREIGN KEY (`id_paralelo`) REFERENCES `paralelo` (`id_paralelo`);
+ALTER TABLE `docente`
+  ADD CONSTRAINT `fk_area_docente` FOREIGN KEY (`id_area`) REFERENCES `area` (`id_area`),
+  ADD CONSTRAINT `fk_titulacion_docente` FOREIGN KEY (`id_titulacion`) REFERENCES `titulacion` (`id_titulacion`);
 
 --
 -- Filtros para la tabla `materia`
@@ -827,6 +806,7 @@ ALTER TABLE `materia`
 -- Filtros para la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
+  ADD CONSTRAINT `fk_docente_paralelos` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`),
   ADD CONSTRAINT `fk_paralelo_materia` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
 
 --
