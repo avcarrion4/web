@@ -2,6 +2,7 @@
 include("../dll/mysql.php");
 include("../dll/config.php");
 
+$a=$_REQUEST['id'];
 
 ?>
 <!DOCTYPE html>
@@ -123,7 +124,7 @@ function myFunction() {
 				<section class="add">
 
 				
-<form id="fnuevo" action="asignaP.php" method="post">
+<form id="fnuevo" action="update_prueba.php" method="post">
 
 
 <fieldset>
@@ -136,7 +137,22 @@ function myFunction() {
 
 
 		    <label for="codigo_prueba">Codigo de prueba </label>
-    	<input type="text" id="codigo_prueba" name="codigo_prueba" placeholder="codigo_prueba">
+    	<input type="text" id="codigo_prueba" name="codigo_prueba" value="<?php
+
+
+$sql2="select * from prueba where id_prueba=$a"; 
+				$registro=mysql_query($sql2) or die('error');
+    	while ($reg= mysql_fetch_array($registro,MYSQLI_ASSOC)) {
+
+			echo $reg['codigo_prueba'];
+			
+
+}
+
+?>
+
+
+    	 ">
 
 
 
@@ -145,7 +161,22 @@ function myFunction() {
 
 
 		    <label for="nombre_prueba">Nombre de prueba </label>
-    	<input type="text" id="nombre_prueba" name="nombre_prueba" placeholder="nombre_prueba">
+    	<input type="text" id="nombre_prueba" name="nombre_prueba" value="<?php
+
+
+$sql2="select * from prueba where id_prueba=$a"; 
+				$registro=mysql_query($sql2) or die('error');
+    	while ($reg= mysql_fetch_array($registro,MYSQLI_ASSOC)) {
+
+			echo $reg['nombre_prueba'];
+			
+
+}
+
+?>
+
+
+    	 ">
 
 
 
@@ -216,7 +247,7 @@ function myFunction() {
 
 
     
-  	  <button id="ag">Agregar</button>
+  	  <button id="ag" name="ide"  value="<?php  echo $a; ?>">Agregar</button>
 
  	 </form>
 
@@ -230,48 +261,6 @@ function myFunction() {
 
 			
 
-				
-<?php  
-			$sql2="select * from prueba";
-			$result=mysql_query($sql2) or die ("error de id max");
-						
-			?>
-					<table id="customers">
-  <tr>
-    <th class="th">codigo </th>
-    <th class="th">nombre</th>
-    <th class="th">estado</th>
-    <th class="th">id_docente</th>
-    <th class="crud">Delete	</th>
-    <th class="crud">Update	</th>
-  </tr>
-
-  <?php
-  while ($line=mysql_fetch_array($result)) {?>
-				<tr >
-				
-				<td><?php echo $line[1] ?></td>
-				<td><?php echo $line[2] ?></td>
-				<td><?php echo $line[3] ?></td>
-				<td><?php echo $line[4] ?></td>
-				
-				
-				
-				
-
-				<?php 
-
-			 $a=$line[0];
-				 ?>
-				
-				<td> <a href='aldelete.php?id=<?php echo $line[0] ?>'>Eliminar</a></td>
-				<td> <a href=  'mod_pruebas.php?id=<?php echo  $a ?>' >Modificar</a></td>
-
-				</tr>
-				<?php } ?>
-
- 
-</table>
 				</section></section>
 <footer>
   <div class="centered clearfix">
