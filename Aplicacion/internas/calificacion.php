@@ -3,11 +3,13 @@ include("../dll/config.php");
 include("../dll/mysql.php");
 extract($_POST);
 session_start();
-$ced=$_SESSION["cedula_estudiante"];
+$query6="Select id_alumno from alumno where cedula_alumno=".$_SESSION["cedula_estudiante"];
+$respuesta=mysql_query($query6) or die('Error de sql');
+$pregunta=mysql_fetch_array($respuesta, MYSQL_ASSOC);
+$ced=$pregunta['id_alumno'];
 $cod2=$_SESSION["codigo"];
 
 $query5="SELECT id_prueba FROM `prueba` WHERE codigo_prueba=$cod2";
-//echo "$query5";
 $id2=mysql_query($query5) or die('Error de sql');
 $id=mysql_fetch_array($id2, MYSQL_ASSOC);
 $cod=$id['id_prueba'];
@@ -29,7 +31,7 @@ function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
 	
 	if (($a==true) and ($b==true) and ($c==true)) {
 		$query="insert into resultado values('',$ced,$cod,$p,'1') ";
-		$insertar=mysql_query($query) or die('Error de sql');
+		$insertar=mysql_query($query) or die('Error de sqlddd');
 		
 	}else{
 		$query="insert into resultado values('',$ced,$cod,$p,'0') ";
@@ -124,7 +126,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
     <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
 </div>
 <?php 
-	$query="SELECT * FROM resultado WHERE id_prueba=$cod and cedula_alumno= $ced" ;
+	$query="SELECT * FROM resultado WHERE id_prueba=$cod and id_alumno= $ced" ;
 	$preguntas=mysql_query($query) or die('Error de sql');
 	$cont2=1;
 	while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
@@ -135,7 +137,7 @@ while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
 		$cont2++;
 		
 	}
-	//session_destroy();
+	session_destroy();
 ?>
 	<form action="../index.html">
 		<button>Salir</button>	

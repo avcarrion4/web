@@ -3,11 +3,13 @@ include("../dll/config.php");
 include("../dll/mysql.php");
 extract($_POST);
 session_start();
-$ced=$_SESSION["cedula_estudiante"];
+$query6="Select id_alumno from alumno where cedula_alumno=".$_SESSION["cedula_estudiante"];
+$respuesta=mysql_query($query6) or die('Error de sql');
+$pregunta=mysql_fetch_array($respuesta, MYSQL_ASSOC);
+$ced=$pregunta['id_alumno'];
 $cod2=$_SESSION["codigo"];
 
 $query5="SELECT id_prueba FROM `prueba` WHERE codigo_prueba=$cod2";
-//echo "$query5";
 $id2=mysql_query($query5) or die('Error de sql');
 $id=mysql_fetch_array($id2, MYSQL_ASSOC);
 $cod=$id['id_prueba'];
@@ -362,8 +364,8 @@ for($x = 1; $x <= $arrlength; $x++) {
       		# code...
       		break;
       }   
-      echo $aux3[0].";".$aux3[1].";".$aux3[2].";".$aux3[3];
-      echo "<br>";
+      //echo $aux3[0].";".$aux3[1].";".$aux3[2].";".$aux3[3];
+      //echo "<br>";
   }
 
 
@@ -385,7 +387,7 @@ for($x = 1; $x <= $arrlength; $x++) {
     <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
 </div>
 <?php 
-	$query="SELECT * FROM resultado WHERE id_prueba=$cod and cedula_alumno= $ced";
+	$query="SELECT * FROM resultado WHERE id_prueba=$cod and id_alumno= $ced";
 	$preguntas=mysql_query($query) or die('Error de sql');
 	$cont2=1;
 	while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {

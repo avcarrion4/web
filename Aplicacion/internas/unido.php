@@ -43,12 +43,7 @@
   }
   
 
-  /*$arrlength=count($array_preguntas);
-  for($x = 1; $x <= $arrlength; $x++) {
-      $aux3=$array_preguntas[$x];
-      echo $aux3[0].";".$aux3[1].";".$aux3[2].";".$aux3[3];
-      echo "<br>";
-  }*/
+  
 ?>
 
 <!DOCTYPE html>
