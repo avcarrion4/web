@@ -4,32 +4,13 @@ include("../dll/mysql.php");
 extract($_POST);
 session_start();
 $ced=$_SESSION["cedula_estudiante"];
-$cod=$_SESSION["codigo"];
+$cod2=$_SESSION["codigo"];
 
-echo $ced;
- echo "<br>";
-echo $cod;
- echo "<br>";
-/*echo $finalResult1;
- echo "<br>";
-echo $finalResult2;
- echo "<br>";
-echo "$finalResult3";
-echo "<br>";
-echo "$finalResult4";
-echo "<br>";
-echo "$finalResult5";
-echo "<br>";
-echo "$finalResult6";
-echo "<br>";
-echo "$finalResult7";
-echo "<br>";
-echo "$finalResult8";
-echo "<br>";
-echo "$finalResult9";
-echo "<br>";
-echo "$finalResult10";
-echo "<br>*/
+$query5="SELECT id_prueba FROM `prueba` WHERE codigo_prueba=$cod2";
+//echo "$query5";
+$id2=mysql_query($query5) or die('Error de sql');
+$id=mysql_fetch_array($id2, MYSQL_ASSOC);
+$cod=$id['id_prueba'];
 
 
 
@@ -51,13 +32,13 @@ function verificacion_pregunta($p, $ced ,$cod ,$a, $b , $c){
 	
 	if (($a==true) and ($b==true) and ($c==true)) {
 		$query="insert into resultado values('',$ced,$cod,$p,'1') ";
-		echo "$query";
-		//$insertar=mysql_query($query) or die('Error de sql');
+		//echo "$query";
+		$insertar=mysql_query($query) or die('Error de sql');
 		
 	}else{
 		$query="insert into resultado values('',$ced,$cod,$p,'0') ";
-		echo "$query";
-		//$insertar=mysql_query($query) or die('Error de sql');
+		//echo "$query";
+		$insertar=mysql_query($query) or die('Error de sql');
 		
 	}
 }
@@ -395,18 +376,28 @@ for($x = 1; $x <= $arrlength; $x++) {
 	<title>Resultado</title>
 </head>
 <body>
+<div class="form-group">
+    <label for="cedula">Cedula</label>
+    <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $_SESSION["cedula_estudiante"] ?>" disabled>
+</div>
+<div class="form-group">
+    <label for="codigo">Codigo</label>
+    <input type="text" class="form-control" id="codigo" name="codigo"  value="<?php echo  $_SESSION["codigo"] ?>" disabled>
+</div>
 <?php 
 	$query="SELECT * FROM resultado WHERE id_prueba=$cod and cedula_alumno= $ced";
 	$preguntas=mysql_query($query) or die('Error de sql');
 	$cont2=1;
 	while ($pregunta=mysql_fetch_array($preguntas, MYSQL_ASSOC)) {
-		echo "Pregunta "."$cont2: ";
-		echo $pregunta['valor'];
-		echo "<br>";
+		?><label for="cedula"><?php echo "Pregunta "."$cont2: "; ?></label>
+		<input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $pregunta['valor']; ?>" disabled>
+		<br>
+		<?php		
 		$cont2++;
 		
 	}
-	//session_destroy();
+	$cont2=1;
+	session_destroy();
 ?>
 	<form action="../index.html">
 		<button>Salir</button>	

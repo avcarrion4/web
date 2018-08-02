@@ -5,7 +5,8 @@
   session_start();
   
   
-  $query="Select * from pregunta where id_prueba=". $_SESSION["codigo"];           
+  $query="Select * from pregunta where id_prueba=(SELECT id_prueba FROM `prueba` WHERE codigo_prueba=".$_SESSION["codigo"].")";           
+  
   $preguntas=mysql_query($query) or die('Error de sql');
   $array_preguntas;
   $aux2;
