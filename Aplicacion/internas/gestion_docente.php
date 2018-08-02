@@ -51,6 +51,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 			<li><a href="#tab1"><span class="fa fa-file-text"></span><span class="tab-text">Crear Prueba</span></a></li>
 			<li><a href="#tab2"><span class="fa fa-upload"></span><span class="tab-text">Asignar Preguntas</span></a></li>
 			<li><a href="#tab3"><span class="fa fa-briefcase"></span><span class="tab-text">Listar Materias</span></a></li>
+			<li><a href="#tab4"><span class="fa fa-briefcase"></span><span class="tab-text">Listar Pruebas</span></a></li>
 		</ul>
 
 		<div class="secciones">
@@ -111,7 +112,7 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 
 				<div class="form-group">
 		    		<label for="materias">Materias asignadas</label>
-		    		<select class="form-control" id="materias" name="materia []" multiple>
+		    		<select style="width: auto;" class="form-control" id="materias" name="materia []" multiple>
 		    			<?php 
 		    			$ry="Select m.nombre_materia FROM materia m WHERE m.id_materia IN (SELECT p.id_materia FROM paralelo p WHERE p.id_docente ="." $ver)";
 		    			$res=mysql_query($ry) or die ('error de sql');
@@ -123,15 +124,30 @@ if ($res=mysql_fetch_array($datos, MYSQL_ASSOC)) {
 		    	?>
 		    	</select>
 			</div>
+			</article>
+
+			<article id="tab4">
+				
+				<div class="form-group">
+		    		<label for="prueba">Pruebas Creadas</label>
+		    		<select style="width: auto;" class="form-control" id="prueba" name="prueba []" multiple>
+		    			<?php 
+		    			$prueba="Select * FROM prueba p WHERE p.id_docente ="." $ver";
+		    			echo $prueba;
+		    			$pru=mysql_query($prueba) or die ('error de sql');
+		    			while ($pr = mysql_fetch_array($pru,MYSQL_ASSOC)) {
+		    				?>
+		    			<option value = "<?php echo $pr['id_prueba'];?>"><?php echo $pr['nombre_prueba'].' - '.$pr['codigo_prueba'];?></option>
+		    		<?php
+		    	}
+		    	?>
+		    	</select>
+			</div>
 
 			</article>
+
 		</div>
 	</div>
-	
-
-
 </body>
-
-
 </html>
 
